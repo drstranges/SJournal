@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SJournal</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="symbol_num">№</string>
+    <string name="symbol_col_add">+</string>
+    <string name="symbol_absent">н</string>
+    <string name="symbol_row_add">+</string>
+    <string name="preferences_category_blank">Формат бланка оцінок</string>
+    <string name="preference_blank_class_style">Формат виводу занять</string>
+    <string name="preference_blank_class_style_summary">Формат відображення занять</string>
+    <string name="preference_blank_class_style_dialog_title">Формат занять</string>
+    <string name="preferences_header_blank_title">Бланк</string>
+    <string name="preferences_header_blank_summary">Формат бланка оцінок</string>
+    <string name="preference_blank_name_format">Імена</string>
+    <string name="preference_blank_name_format_summary">Формат відображення імен студентів</string>
+    <string name="preference_blank_name_format_dialog_title">Формат імен</string>
+    <string name="preference_blank_symbol_format">Нотатки</string>
+    <string name="preference_blank_symbol_format_summary">Формат текстових заміток в таблиці</string>
+    <string name="preference_blank_symbol_format_dialog_title">Формат тексту</string>
+    <string name="preference_blank_absent_symbol_title">Символ \"Відсутній\"</string>
+    <string name="preference_blank_absent_symbol_summary">Символ відмітки відсутніх на занятті (до 3 символів)</string>
+    <string name="preferences_title">Налаштування</string>
+    <string name="dialog_group_add_hint">Введіть назву нової групи…</string>
+    <string name="dialog_subject_add_title_hint">Назва нової дисципліни…</string>
+    <string name="dialog_subject_add_abbr_hint">Скорочення (абревіатура) нової дисципліни…</string>
+    <string name="dialog_class_type_add_title_hint">Назва нового виду занять…</string>
+    <string name="dialog_class_type_add_abbr_hint">Скорочення (абревіатура) нового виду занять…</string>
+    <string name="dialog_class_type_update_title_hint">Нова назва…</string>
+    <string name="dialog_class_type_update_abbr_hint">Нове скорочення (абревіатура)</string>
+    <string name="error_entry_start_with_space">Увага! Пробіл на початку назв не допускається!</string>
+    <string name="error">Щось пішло не так! Помилка!</string>
+    <string name="empty">Дані відсутні</string>
+    <string name="error_entry_exists">Даний запис вже існує!</string>
+    <string name="dialog_group_update_hint">Введіть нову назву</string>
+    <string name="dialog_group_add_title">Створення нової групи</string>
+    <string name="dialog_group_update_title">Зміна назви групи</string>
+    <string name="dialog_group_delete_title">Видалення групи</string>
+    <string name="dialog_group_delete_with_students">Видалити разом із записами про студентів</string>
+    <string name="error_group_contains_students">Видалення неможливо! Група містить записи про студентів.</string>
+    <string name="dialog_group_delete_alert_delete_students">Увага!\nУсі дані про студентів, що входять тільки в цю групу, будуть видалені.</string>
+    <string name="list_empty">Список порожній!</string>
+    <string name="dialog_subject_add_title">Створення нової дисципліни…</string>
+
+
+
+    <string name="dialog_subject_update_title">Редагування дисципліни…</string>
+    <string name="error_entry_not_specify">Заповніть всі обов\'язкові поля!</string>
+    <string name="dialog_subject_delete_title">Видалення дисципліни…</string>
+
+    <string name="dialog_student_delete_are_you_sure">Будуть видалені всі записи, пов\'язані зі студентом у всіх групах!\nВсе одно видаляти?</string>
+    <string name="student_id">Номер залікової книжки</string>
+    <string name="student_id_hint">id студента</string>
+    <string name="name_last">Прізвище</string>
+    <string name="name_last_hint">Введіть прізвище студента</string>
+    <string name="name_first">Ім\'я </string>
+    <string name="name_first_hint">Введіть ім\'я студента</string>
+    <string name="name_middle">По батькові</string>
+    <string name="name_middle_hint">По батькові студента</string>
+    <string name="groups">Групи</string>
+    <string name="dialog_groups_choice_hint">Виберіть групи</string>
+    <string name="get_choice">Вибрати</string>
+    <string name="e_mail">e-mail</string>
+    <string name="phone_mob">Телефон (моб.)</string>
+    <string name="phone_home">Телефон (дом.)</string>
+    <string name="note">Примітка</string>
+    <string name="e_mail_hint">e-mail не заданий</string>
+    <string name="phone_mob_hint">Мобільный телефон</string>
+    <string name="phone_home_hint">Стаціонарний телефон</string>
+    <string name="note_hint">Будь-який текст</string>
+    <string name="dialog_student_add_title">Додавання студента…</string>
+    <string name="preference_general_auto_student_id_summary">Визначати id студента вручну</string>
+    <string name="preference_general_auto_student_id_title">ID студентів</string>
+    <string name="preferences_header_general_title">Загальні</string>
+    <string name="preferences_header_general_summary">Загальні налаштування</string>
+    <string name="error_student_id_exist">ID вже використаний! Введіть інше значення!</string>
+    <string name="dialog_student_add_group_not_selected">Вкажіть групу студента!</string>
+    <string name="dialog_student_select_groups_title">Вибір груп…</string>
+    <string name="dialog_student_update_title">Редагування інформації про студента…</string>
+    <string name="dialog_student_delete_title">Видалення записи про студента…</string>
+    <string name="change">Змінити</string>
+    <string name="delete">Видалити</string>
+    <string name="group">Група</string>
+    <string name="subject">Дисципліна</string>
+    <string name="class_type">Вид заняття</string>
+    <string name="dialog_group_choice_title">Групи</string>
+    <string name="dialog_subject_choice_title">Дисципліни</string>
+    <string name="fio">Прізвище та ін.</string>
+    <string name="dialog_choice_more">Показати все</string>
+    <string name="dialog_choice_add">Додати</string>
+    <string name="menu_group">Групи</string>
+    <string name="menu_add">Додати</string>
+    <string name="menu_update">Змінити</string>
+    <string name="menu_delete">Видалити</string>
+    <string name="menu_subject">Дисципліни</string>
+    <string name="dialog_subject_delete_are_you_sure">Увага!\nБудут видалені всі заняття й оцінки з обраної дисципліни.</string>
+    <string name="dialog_class_type_add_title">Додавання нового виду заняття…</string>
+    <string name="dialog_class_type_update_title">Редагування виду занять…</string>
+    <string name="dialog_class_type_delete_title">Видалення виду занянія…</string>
+    <string name="dialog_class_type_delete_are_you_sure">Увага!\nБудут видалені всі оцінки за обраним видом занять для всіх дисциплін!</string>
+    <string name="menu_class_type">Види занять</string>
+
+    <string name="menu_student">Студенти</string>
+    <string name="dialog_student_select_title">Вибір студента…</string>
+    <string name="theme_abbr">Скорочення</string>
+    <string name="theme_abbr_hint">Введіть скороченну назву теми заняття</string>
+    <string name="theme">Тема</string>
+    <string name="theme_hint">Введіть назву теми</string>
+    <string name="color">Колір</string>
+    <string name="dialog_color_choice">Вибір кольору</string>
+    <string name="dialog_class_add_title">Нове заняття…</string>
+    <string name="dialog_class_update_title">Редагування заняття…</string>
+    <string name="dialog_class_delete_title">Видалення заняття…</string>
+    <string name="create">Створити</string>
+    <string name="update">Змінити</string>
+    <string name="back_to_exit">Натисніть повторно для виходу…</string>
+    <string name="dialog_class_delete_are_you_sure">Видалити заняття?</string>
+
+
+
+    <string name="mark_note">Примітка</string>
+    <string name="mark">Оцінка</string>
+
+    <string name="preference_mark_scale_set_title">Шкала оцінок</string>
+    <string name="preference_mark_scale_set_summary">Перелік оцінок для швидкого використовувалися</string>
+    <string name="preference_mark_scale_set_dialog_title">Введіть оцінки через кому</string>
+    <string name="preference_symbol_set_title">Символи</string>
+    <string name="preference_symbol_set_summary">Перелік символів для швидкого доступу</string>
+    <string name="preference_symbol_set_dialog_title">Введіть перелік символів через кому</string>
+    <string name="dialog_mark_symbol_enter_title">Введіть примітку</string>
+    <string name="dialog_mark_symbol_enter_hint">Довільний текст</string>
+
+    <string name="dialog_mark_mark_enter_hint">Введіть будь-яку оцінку</string>
+    <string name="menu_delete_in_group">Видалити з групи</string>
+    <string name="delete_student_only_one_group">Студент зарахований тільки в цю групу!\nМожливе тільки повне видалення!</string>
+
+    <string name="menu_delete_full">Видалити повністю</string>
+    <string name="blank_absent_row">Відсутні</string>
+    <string name="error_file_exists">Помилка!\ nФайл існує!</string>
+    <string name="menu_database">База даних</string>
+    <string name="menu_database_export">Зберегти</string>
+    <string name="menu_database_restore">Відновити</string>
+    <string name="dialog_database_backup_title">Введіть ім\'я файлу</string>
+    <string name="dialog_database_backup_edit_hint">Назва файлу…</string>
+    <string name="db_save_ok">База даних збережена</string>
+    <string name="error_ext_storage_not_writable">Помилка!\nSD карта не знайдена!</string>
+    <string name="dialog_database_restore_title">Відновлення збереженої копії бази</string>
+    <string name="dialog_database_backup_list_empty">Збережені копії не знайдені…</string>
+
+    <string name="dialog_import_students_file_list_empty">У директорії імпорту файли *.csv не знайдені</string>
+    <string name="menu_import">Імпорт з файлу</string>
+    <string name="dialog_import_check">Перевірити</string>
+    <string name="do_import">Імпортувати</string>
+    <string name="error_iofile">Помилка доступу до файлової системи!\nМожливо відсутній зовнішній накопичувач (External SD)</string>
+    <string name="dialog_import_students_title">Імпортування списку студентів…</string>
+    <string name="error_file_not_exists">Файл відсутній!</string>
+    <string name="error_file_size_limit">Помилка! Файл має занадто великий розмір!\nМаксімальний розмір файлу 50 кБ (!)</string>
+
+
+    <string name="dialog_encode">Кодування:</string>
+    <string name="dialog_file">Файл:</string>
+    <string name="dialog_group_list_empty">Список порожній…</string>
+    <string name="dialog_import_group_not_selected">Група не вибрана!\nІмпорт не можливий!</string>
+    <string name="dialog_result_format">Імпортовано %1$d з %2$d.\nЗгенеровано %3$d нових id для студентів!\n\nПравила імпорту:\n- записи, що містять помилки, імпортовані не будуть!\n- при збігу id студента з наявними в базі, запис доданий не буде!\n-для записів без id останні будуть згенеровані автоматично з випадкових чисел!</string>
+    <string name="dialog_import_successful">Імпорт завершено!</string>
+    <string name="dialog_import_data_empty">Дані про студентів не розпізнано…\nПеревірте структуру файлу!</string>
+    <string name="import_rule">Для імпорту списку студентів: \n1. Створіть текстовий файл у форматі .csv.\nПриклад:\n ===================== \nІм\'я файлу: Группа1.csv\nВміст рядків файлу:\n {id; (якщо є)}[Прізвище];[Ім\'я];[По-батькові];[e-mail];[тел1];[тел2];[примітка]\n=====================\n2. Помістіть файл в директорію SJournal_Data\\import на SD карті.\n3. Виконайте імпорт.\n *. У формат .csv можна легко імпортувати з Excel та ін.</string>
+    <string name="menu_blank_style">Стиль таблиці</string>
+    <string name="fragment_blank_style_topic">Назва таблиці</string>
+    <string name="study_class">Заняття</string>
+
+    <string name="bg_color">Колір фону</string>
+    <string name="text_color">Колір тексту</string>
+    <string name="text_style">Стиль тексту</string>
+    <string name="text_size">Розмір тексту</string>
+    <string name="ceil_width">Ширина колонки</string>
+
+
+
+    <string name="bg_color_table">Фон таблиці</string>
+    <string name="bg_color_blank">Фон бланка</string>
+    <string name="current_profile">Поточний профіль</string>
+    <string name="dialog_load_dimensions_title">Виберіть профіль</string>
+    <string name="dialog_save_dimensions_title">Зберегти профіль</string>
+    <string name="dialog_save_dimensions_hint">Введіть ім\'я профілю</string>
+    <string name="dialog_profile_not_saved">Профіль не збережений!</string>
+    <string name="dialog_profile_save_success">Профіль успішно збережений!</string>
+    <string name="dialog_not_try_update_default_profile">Профіль не збережений!\nВиберіть інше ім\'я!</string>
+    <string name="dialog_delete_profile_title">Видалити профіль?</string>
+    <string name="dialog_profile_delete_success">Профіль видалено!</string>
+    <string name="dialog_dimension_style_set_title">Задайте стиль</string>
+    <string name="save_changes">Зберегти зміни</string>
+    <string name="delete_profile">Видалити профіль</string>
+    <string name="lesson_abr">\"Лк\"</string>
+    <string name="lesson_title">\"Лекція\"</string>
+    <string name="practice_abr">\"Пз\"</string>
+    <string name="practice_title">\"Практичне заняття\"</string>
+    <string name="lab_abr">\"Лб\"</string>
+    <string name="lab_title">\"Лабораторна робота\"</string>
+    <string name="menu_semester_select">Вибір семестру</string>
+    <string name="menu_semester_format">Семестр %1$d</string>
+    <string name="dialog_semester_choice_title">Виберіть поточний семестр</string>
+    <string name="menu_blank_type_summary">Рейтинг</string>
+    <string name="menu_blank_type_classes">Відомість</string>
+    <string name="dialog_sum_entry_add_title">Нова позиція зведеної відомості</string>
+    <string name="dialog_sum_entry_update_title">Зміна позиції</string>
+    <string name="dialog_sum_entry_delete_title">Видалення позиції</string>
+    <string name="absent_num">Пропуски</string>
+    <string name="rules">Правила</string>
+    <string name="they_all">всі</string>
+    <string name="dialog_choice_rule_title">Вибрати правило</string>
+    <string name="dialog_create_rule_title">Створити правило</string>
+    <string name="string_if">ЯКЩО</string>
+    <string name="string_then">ТО</string>
+
+    <string name="error_entry_not_added_values_not_specify">Запис не доданий!\nНе задані обов\'язкові поля!</string>
+    <string name="rule_created_successfully">Правило створене!</string>
+    <string name="rule_exists">Таке правило вже існує!</string>
+    <string name="sum_entry_created">Запис успішно створена!</string>
+    <string name="result">Результат</string>
+    <string name="not_use_for_result">Не враховувати в результаті</string>
+    <string name="sum_entry_updated">Позиція успішно змінена!</string>
+    <string name="sum_entry_deleted">Позиція успішно видалена!</string>
+    <string name="menu_blank_panel_show">Показати/приховати панель</string>
+    <string name="menu_blank_group_select">Група</string>
+    <string name="menu_blank_subject_select">Дисципліна</string>
+    <string name="menu_blank_class_type_select">Вид заняття</string>
+
+    <string name="typeface_normal">Звичайний</string>
+    <string name="typeface_bold">Напівжирний</string>
+    <string name="typeface_italic">З нахилом</string>
+    <string name="typeface_bold_italic">Напівжирний з нахилом</string>
+    <string name="class_abbr_and_date">Абревіатура і дата</string>
+    <string name="class_ony_abbr">Тільки абревіатура</string>
+    <string name="class_only_date">Тільки дата</string>
+    <string name="student_name_full_dot_dot">Прізвище І. П.</string>
+    <string name="student_name_full_full_full">Прізвище Ім\'я По-батькові</string>
+    <string name="student_name_full_dot">Прізвище І.</string>
+    <string name="student_name_full_full">Прізвище Ім\'я</string>
+    <string name="student_name_full_full_dot">ФПрізвище Ім\'я П.</string>
+    <string name="symbol_ellipsize">Під розмір рядка</string>
+    <string name="symbol_place_in_ceil">Вмістити в клітинку (зменшити розмір тексту)</string>
+    <string name="symbol_place_in_ceil_inc_width">Вмістити в клітинку (збільшити розмір колонки) (не реалізовано)</string>
+    <string name="menu_blank_add_class_absents_select">Нове заняття</string>
+    <string name="menu_about">Про програму</string>
+    <string name="dialog_about_go_to_forum">Обсудить на форуме</string>
+    <string name="dialog_about_go_to_google_app_store">App Store</string>
+    <string name="dialog_about_send_email">Send e-mail</string>
+    <string name="menu_help">Допомога</string>
+    <string name="send_email">Send</string>
+    <string name="send_message">SMS</string>
+    <string name="menu_export">Експорт</string>
+    <string name="menu_export_img">Зображення (.png)</string>
+    <string name="dialog_version_restriction_message">Не доступно в безкоштовній версії!</string>
+
+    <string name="dialog_about_message">Цей додаток розроблений викладачем ВНЗ і для викладачів ВНЗ.\n\n
+        Із задоволенням приймаю конструктивну критику, зауваження та пропозиції!\n\n
+        Написання даного додатку у автора заняло всю його выдпустку, у звязку з чим він виражає свою щиру подяку дружині за розуміння і підтримку.</string>
+    <string name="dialog_about_message_title">
+        <![CDATA[<b>SJournal v%1$s (<i>by d_romka</i>)</b> - %2$s<br/>
+        <b>Журал викладача</b>
+        ]]>
+        </string>
+    <string name="dialog_mark_mark_enter_title">Введіть оцінку</string>
+    <string name="preference_general_calendar_sync_title">Синхронізація з календарем</string>
+    <string name="preference_general_calendar_sync_summary">Автовибір таблиці при знахожденні назв группи/дисципліни/заняття в заголовку поточної події в календарі.</string>
+    <string name="preference_general_calendar_sync_window_title">Вікно часу</string>
+    <string name="preference_general_calendar_sync_window_summary">Шукати події за 5 хвилин до та після поточного часу</string>
+    <string name="calendar_sync_query_title">Синхронізація з календарем</string>
+    <string name="calendar_sync_with_event_complete">Синхронізовано з календарем:\n%1$s.</string>
+    <string name="preference_blank_summary_show_cols_summary">Показувати колонку "Середні значення" (результат поділений на кількість значущих колонок)</string>
+    <string name="preference_blank_summary_show_cols_title">Середні значення</string>
+    <string name="preferences_header_blank_summary_title">Бланк резульратів</string>
+    <string name="preferences_header_blank_summary_summary">Формат бланку результатів</string>
+    <string name="result_avg">Середнє</string>
+    <string name="preference_edit_class_on_click_title">Редагування занять по короткому натисканні</string>
+    <string name="preference_edit_class_on_click_summary">Редагувати заняття по короткому чи довгому натисканні</string>
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item android:id="@+id/menu_blank_group_select" android:title="@string/menu_blank_group_select" android:icon="@drawable/ic_menu_group" android:showAsAction="always|withText" android:orderInCategory="4" android:visible="true"/>
+    <item android:id="@+id/menu_blank_subject_select" android:title="@string/menu_blank_subject_select" android:icon="@drawable/ic_menu_subject" android:showAsAction="always|withText" android:orderInCategory="5" android:visible="true"/>
+    <item android:id="@+id/menu_blank_class_type_select" android:title="@string/menu_blank_class_type_select" android:icon="@drawable/ic_menu_class_type" android:showAsAction="always|withText" android:orderInCategory="6" android:visible="true"/>
+
+    <item android:id="@+id/menu_blank_add_class_absents_select" android:title="@string/menu_blank_add_class_absents_select" android:icon="@drawable/ic_menu_mark" android:showAsAction="always|withText" android:orderInCategory="7" android:visible="true"/>
+
+    <item android:id="@+id/menu_blank_type_select" android:title="@string/menu_blank_type_summary" android:icon="@android:drawable/ic_menu_view" android:showAsAction="always|withText" android:orderInCategory="8" android:visible="true"/>
+    <item android:id="@+id/menu_semester_select" android:title="@string/menu_semester_select" android:icon="@android:drawable/ic_menu_more" android:showAsAction="ifRoom|withText" android:orderInCategory="9" android:visible="false"/>
+    <item android:id="@+id/menu_blank_panel_show" android:title="@string/menu_blank_panel_show" android:icon="@drawable/ic_menu_show_choice_panel" android:showAsAction="ifRoom" android:orderInCategory="10" android:visible="true"/>
+
+
+    <item android:id="@+id/menu_subject" android:title="@string/menu_subject" android:showAsAction="never" android:orderInCategory="11">
+        <menu>
+            <item android:id="@+id/menu_subject_add" android:title="@string/menu_add" android:icon="@android:drawable/ic_menu_add" android:orderInCategory="1"/>
+            <item android:id="@+id/menu_subject_update" android:title="@string/menu_update" android:icon="@android:drawable/ic_menu_edit" android:orderInCategory="2"/>
+            <item android:id="@+id/menu_subject_delete" android:title="@string/menu_delete" android:icon="@android:drawable/ic_menu_delete" android:orderInCategory="3" />
+        </menu>
+    </item>
+    <item android:id="@+id/menu_class_type" android:title="@string/menu_class_type" android:showAsAction="never" android:orderInCategory="12">
+        <menu>
+            <item android:id="@+id/menu_class_type_add" android:title="@string/menu_add" android:icon="@android:drawable/ic_menu_add" android:orderInCategory="1"/>
+            <item android:id="@+id/menu_class_type_update" android:title="@string/menu_update" android:icon="@android:drawable/ic_menu_edit" android:orderInCategory="2"/>
+            <item android:id="@+id/menu_class_type_delete" android:title="@string/menu_delete" android:icon="@android:drawable/ic_menu_delete" android:orderInCategory="3" />
+        </menu>
+    </item>
+    <item android:id="@+id/menu_group" android:title="@string/menu_group" android:showAsAction="never" android:orderInCategory="13">
+        <menu>
+            <item android:id="@+id/menu_group_add" android:title="@string/menu_add" android:icon="@android:drawable/ic_menu_add" android:orderInCategory="1"/>
+            <item android:id="@+id/menu_group_update" android:title="@string/menu_update" android:icon="@android:drawable/ic_menu_edit" android:orderInCategory="2"/>
+            <item android:id="@+id/menu_group_delete" android:title="@string/menu_delete" android:icon="@android:drawable/ic_menu_delete" android:orderInCategory="3" />
+        </menu>
+    </item>
+    <item android:id="@+id/menu_student" android:title="@string/menu_student" android:showAsAction="never" android:orderInCategory="14">
+        <menu>
+            <item android:id="@+id/menu_student_add" android:title="@string/menu_add" android:icon="@android:drawable/ic_menu_add" android:orderInCategory="1"/>
+            <item android:id="@+id/menu_student_update" android:title="@string/menu_update" android:icon="@android:drawable/ic_menu_edit" android:orderInCategory="2"/>
+            <item android:id="@+id/menu_student_delete" android:title="@string/menu_delete" android:icon="@android:drawable/ic_menu_delete" android:orderInCategory="3" />
+            <item android:id="@+id/menu_student_import" android:title="@string/menu_import" android:icon="@android:drawable/ic_menu_more" android:orderInCategory="4" />
+        </menu>
+    </item>
+    <item android:id="@+id/menu_blank_style" android:title="@string/menu_blank_style" android:icon="@android:drawable/ic_menu_preferences" android:orderInCategory="15"/>
+    <item android:id="@+id/menu_export" android:title="@string/menu_export" android:showAsAction="never" android:orderInCategory="16">
+        <menu>
+            <item android:id="@+id/menu_export_img" android:title="@string/menu_export_img" android:icon="@android:drawable/ic_menu_save" android:orderInCategory="1"/>
+
+        </menu>
+    </item>
+</menu>

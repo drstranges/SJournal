@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preferences_category_blank">
+
+        <CheckBoxPreference
+            android:key="PREFS_BLANK_EDIT_CLASS_ON_CLICK"
+            android:title="@string/preference_edit_class_on_click_title"
+            android:summary="@string/preference_edit_class_on_click_summary"
+            android:defaultValue="false"/>
+
+        <EditTextPreference
+            android:key="PREFS_MARK_SCALE_USER_SET"
+            android:title="@string/preference_mark_scale_set_title"
+            android:summary="@string/preference_mark_scale_set_summary"
+            android:dialogTitle="@string/preference_mark_scale_set_dialog_title"
+            android:defaultValue="@string/mark_scale_set_default"
+            android:inputType="text"
+            android:digits="0123456789,"/>
+        <EditTextPreference
+            android:key="PREFS_SYMBOL_USER_SET"
+            android:title="@string/preference_symbol_set_title"
+            android:summary="@string/preference_symbol_set_summary"
+            android:dialogTitle="@string/preference_symbol_set_dialog_title"
+            android:defaultValue="@string/symbol_set_default"
+            android:inputType="text"
+            android:digits="0123456789,"/>
+
+        <EditTextPreference
+            android:key="PREFS_BLANK_ABSENT_SYMBOL"
+            android:defaultValue="@string/symbol_absent"
+            android:summary="@string/preference_blank_absent_symbol_summary"
+            android:title="@string/preference_blank_absent_symbol_title"
+            android:maxLength="3" />
+
+        <ListPreference
+            android:key="PREFS_BLANK_CLASS_STYLE"
+            android:defaultValue="0"
+            android:title="@string/preference_blank_class_style"
+            android:summary="@string/preference_blank_class_style_summary"
+            android:entries="@array/preference_blank_class_style_entries"
+            android:entryValues="@array/preference_values_10"
+            android:dialogTitle="@string/preference_blank_class_style_dialog_title" />
+
+        <ListPreference
+            android:key="PREFS_BLANK_NAME_FORMAT"
+            android:defaultValue="0"
+            android:title="@string/preference_blank_name_format"
+            android:summary="@string/preference_blank_name_format_summary"
+            android:entries="@array/preference_blank_name_format_entries"
+            android:entryValues="@array/preference_values_10"
+            android:dialogTitle="@string/preference_blank_name_format_dialog_title" />
+
+        <ListPreference
+            android:key="PREFS_BLANK_SYMBOL_FORMAT"
+            android:defaultValue="0"
+            android:title="@string/preference_blank_symbol_format"
+            android:summary="@string/preference_blank_symbol_format_summary"
+            android:entries="@array/preference_blank_symbol_format_entries"
+            android:entryValues="@array/preference_values_10"
+            android:dialogTitle="@string/preference_blank_symbol_format_dialog_title" />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

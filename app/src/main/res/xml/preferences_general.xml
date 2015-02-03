@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="PREFS_MANUAL_STUDENT_ID"
+        android:defaultValue="false"
+        android:summary="@string/preference_general_auto_student_id_summary"
+        android:title="@string/preference_general_auto_student_id_title"/>
+    <CheckBoxPreference
+        android:key="PREFS_CALENDAR_SYNC"
+        android:defaultValue="true"
+        android:summary="@string/preference_general_calendar_sync_summary"
+        android:title="@string/preference_general_calendar_sync_title"/>
+
+    <CheckBoxPreference
+        android:dependency="PREFS_CALENDAR_SYNC"
+        android:key="PREFS_CALENDAR_SYNC_WINDOW"
+        android:defaultValue="true"
+        android:summary="@string/preference_general_calendar_sync_window_summary"
+        android:title="@string/preference_general_calendar_sync_window_title"/>
+
+
+
+</PreferenceScreen>

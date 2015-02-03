@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="mark_scale_set_default" translatable="false">1,2,3,4,5,6,7,8,9,10,11,12</string>
+    <string name="symbol_set_default" translatable="false">+,-,*,?,!,%,#,@</string>
+    <string name="three_dots" translatable="false">…</string>
+    
+    <string name="app_dev_email" translatable="false">drstranges@gmail.com</string>
+    
+    
+    <string name="profile_default_blank" translatable="false">" VALUES (\"Default\",11,0,NULL,-2,-2,NULL,NULL,NULL,17,NULL,0,0,0,0,0,0,0,0);"</string>
+    <string name="profile_default_table" translatable="false">" VALUES (\"Default\",10,-16777216,NULL,-2,-2,NULL,NULL,NULL,17,NULL,0,0,0,0,0,0,0,0);"</string>
+    <string name="profile_default_topic_text" translatable="false">" VALUES (\"Default\",1,-16744320,NULL,-1,-2,20,2,-1,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_num_top" translatable="false">" VALUES (\"Default\",2,-16733271,20,-2,-1,12,0,-16777216,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_num_left" translatable="false">" VALUES (\"Default\",3,-9868951,20,-2,-1,14,0,-1,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_name_top" translatable="false">" VALUES (\"Default\",4,-16733271,220,-2,-1,16,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_name_left" translatable="false">" VALUES (\"Default\",5,-16713062,220,-2,-1,24,0,-16777216,19,1,4,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_class_top" translatable="false">" VALUES (\"Default\",6,-2031617,100,-2,-1,16,0,-16777216,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_class_body" translatable="false">" VALUES (\"Default\",7,-7876870,100,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_add_col" translatable="false">" VALUES (\"Default\",8,-5192482,70,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_absent_ceil" translatable="false">" VALUES (\"Default\",12,-5192482,100,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+
+    <string-array name="encoding" >
+        <item>Windows-1251</item>
+        <item tools:ignore="TypographyDashes">ISO-8859-1</item>
+        <item>US-ASCII</item>
+        <item>UTF-8</item>
+        <item>UTF-16</item>
+        <item>UTF-16BE</item>
+        <item>UTF-16LE</item>
+    </string-array>
+
+    <string-array name="preference_values_10" >
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="colors_name" >
+        <!-- Common -->
+        <item>"White"</item>
+        <item>"Black"</item>
+        <item>"Transparent"</item>
+        <item>"Red"</item>
+        <item>"Green"</item>
+        <item>"Blue"</item>
+        <item>"Yellow"</item>
+        <item>"Teal"</item>
+        <item>"Orange"</item>
+
+        <!-- Android style -->
+        <item>"Android green"</item>
+
+        <!-- Windows 8 style -->
+        <item>"win8-Magenta"</item>
+        <item>"win8-Purple"</item>
+        <item>"win8-Teal"</item>
+        <item>"win8-Lime"</item>
+        <item>"win8-Brown"</item>
+        <item>"win8-Pink"</item>
+        <item>"win8-Orange"</item>
+        <item>"win8-Blue"</item>
+        <item>"win8-Red"</item>
+        <item>"win8-Green"</item>
+
+        <!-- Generic -->
+        <!-- Generic Dark -->
+        <item>"Dark Turquoise"</item>
+        <item>"Dark Cyan"</item>
+        <item>"Dark Green"</item>
+        <item>"Dark Salmon"</item>
+        <item>"Dark Blue"</item>
+        <item>"Dark Orange"</item>
+        <item>"Dark Orchid"</item>
+        <item>"Dark Violet"</item>
+        <item>"Dark Magenta"</item>
+        <item>"Dark Red"</item>
+        <item>"Dark OliveGreen"</item>
+        <item>"Dark SlateGray"</item>
+        <item>"Dark SlateBlue"</item>
+        <item>"Dark SeaGreen"</item>
+        <item>"Dark Gray"</item>
+        <item>"Dark Goldenrod"</item>
+        <item>"Dark Khaki"</item>
+        <!-- Generic Light -->
+        <item>"Light Grey"</item>
+        <item>"Light SteelBlue"</item>
+        <item>"Light Blue"</item>
+        <item>"Light Pink"</item>
+        <item>"Light Salmon"</item>
+        <item>"Light Cyan"</item>
+        <item>"Light Coral"</item>
+        <item>"Light SkyBlue"</item>
+        <item>"Light SeaGreen"</item>
+        <item>"Light SlateGray"</item>
+        <item>"Light Green"</item>
+        <item>"Light Yellow"</item>
+        <item>"Light GoldenrodYellow"</item>
+        <!-- Generic Medium -->
+        <item>"Medium SlateBlue"</item>
+        <item>"Medium Aquamarine"</item>
+        <item>"Medium VioletRed"</item>
+        <item>"Medium Orchid"</item>
+        <item>"Medium Purple"</item>
+        <item>"Medium Blue"</item>
+        <item>"Medium Turquoise"</item>
+        <item>"Medium SeaGreen"</item>
+        <item>"Medium SpringGreen"</item>
+
+        <!-- a -->
+        <item>"Azure"</item>
+        <item>"AliceBlue"</item>
+        <item>"AntiqueWhite"</item>
+        <item>"Aquamarine"</item>
+        <!-- b -->
+        <item>"Beige"</item>
+        <item>"BurlyWood"</item>
+        <item>"Brown"</item>
+        <item>"BlueViolet"</item>
+        <item>"aqua"</item>
+        <item>"Bisque"</item>
+        <item>"BlanchedAlmond"</item>
+        <!-- c -->
+        <item>"Cornsilk"</item>
+        <item>"Coral"</item>
+        <item>"Chocolate"</item>
+        <item>"Crimson"</item>
+        <item>"CornflowerBlue"</item>
+        <item>"CadetBlue"</item>
+        <item>"Chartreuse"</item>
+        <!-- d -->
+        <item>"DeepPink"</item>
+        <item>"DeepSkyBlue"</item>
+        <item>"DimGray"</item>
+        <item>"DodgerBlue"</item>
+        <!-- e -->
+        <!-- f -->
+        <item>"fuchsia"</item>
+        <item>"ForestGreen"</item>
+        <item>"FloralWhite"</item>
+        <item>"FireBrick"</item>
+        <item>"Fuchsia"</item>
+        <!-- g -->
+        <item>"Gold"</item>
+        <item>"GreenYellow"</item>
+        <item>"Gray"</item>
+        <item>"Goldenrod"</item>
+        <item>"Gainsboro"</item>
+        <item>"GhostWhite"</item>
+        <!-- h -->
+        <item>"Honeydew"</item>
+        <item>"HotPink"</item>
+        <!-- i -->
+        <item>"Indigo"</item>
+        <item>"Ivory"</item>
+        <item>"IndianRed"</item>
+        <!-- j -->
+        <!-- k -->
+        <item>"Khaki"</item>
+        <!-- l -->
+        <item>"lime"</item>
+        <item>"LawnGreen"</item>
+        <item>"LavenderBlush"</item>
+        <item>"Linen"</item>
+        <item>"LemonChiffon"</item>
+        <item>"Lavender"</item>
+        <item>"LimeGreen"</item>
+        <!-- m -->
+        <item>"Maroon"</item>
+        <item>"Moccasin"</item>
+        <item>"Maroon"</item>
+        <item>"MintCream"</item>
+        <item>"Magenta"</item>
+        <item>"MidnightBlue"</item>
+        <item>"MistyRose"</item>
+        <!-- n -->
+        <item>"Navy"</item>
+        <item>"NavajoWhite"</item>
+        <!-- o -->
+        <item>"Olive"</item>
+        <item>"OliveDrab"</item>
+        <item>"OrangeRed"</item>
+        <item>"OldLace"</item>
+        <item>"Orchid"</item>
+
+        <!-- p -->
+        <item>"PeachPuff"</item>
+        <item>"Pink"</item>
+        <item>"Peru"</item>
+        <item>"PaleGoldenrod"</item>
+        <item>"PaleVioletRed"</item>
+        <item>"Plum"</item>
+        <item>"PaleGreen"</item>
+        <item>"PowderBlue"</item>
+        <item>"PaleTurquoise"</item>
+        <item>"PapayaWhip"</item>
+        <!-- q -->
+        <!-- r -->
+        <item>"RoyalBlue"</item>
+        <item>"RosyBrown"</item>
+        <!-- s -->
+        <item>"Silver"</item>
+        <item>"Seashell"</item>
+        <item>"Snow"</item>
+        <item>"Sienna"</item>
+        <item>"SpringGreen"</item>
+        <item>"SkyBlue"</item>
+        <item>"SeaGreen"</item>
+        <item>"SteelBlue"</item>
+        <item>"SlateGray"</item>
+        <item>"SlateBlue"</item>
+        <item>"SaddleBrown"</item>
+        <item>"Salmon"</item>
+        <item>"SandyBrown"</item>
+
+        <!-- t -->
+        <item>"Thistle"</item>
+        <item>"Turquoise"</item>
+        <item>"Tan"</item>
+        <item>"Tomato"</item>
+        <!-- u -->
+        <!-- v -->
+        <item>"Purple"</item>
+        <item>"Violet"</item>
+        <!-- w -->
+        <item>"WhiteSmoke"</item>
+        <item>"Wheat"</item>
+        <!-- x -->
+        <!-- y -->
+
+        <item>"YellowGreen"</item>
+        <!-- z -->
+
+    </string-array>
+
+    <integer-array name="colors_value">
+        <!-- Common -->
+        <item>@color/white</item>
+        <item>@color/black</item>
+        <item>@android:color/transparent</item>
+        <item>@color/red</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/teal</item>
+        <item>@color/Orange</item>
+
+        <!-- Android style -->
+        <item>@color/android_green</item>
+
+        <!-- Windows 8 style -->
+        <item>@color/win8_magenta</item>
+        <item>@color/win8_purple</item>
+        <item>@color/win8_teal</item>
+        <item>@color/win8_lime</item>
+        <item>@color/win8_brown</item>
+        <item>@color/win8_pink</item>
+        <item>@color/win8_orange</item>
+        <item>@color/win8_blue</item>
+        <item>@color/win8_red</item>
+        <item>@color/win8_green</item>
+
+        <!-- Generic -->
+        <!-- Generic Dark -->
+        <item>@color/DarkTurquoise</item>
+        <item>@color/DarkCyan</item>
+        <item>@color/DarkGreen</item>
+        <item>@color/DarkSalmon</item>
+        <item>@color/DarkBlue</item>
+        <item>@color/DarkOrange</item>
+        <item>@color/DarkOrchid</item>
+        <item>@color/DarkViolet</item>
+        <item>@color/DarkMagenta</item>
+        <item>@color/DarkRed</item>
+        <item>@color/DarkOliveGreen</item>
+        <item>@color/DarkSlateGray</item>
+        <item>@color/DarkSlateBlue</item>
+        <item>@color/DarkSeaGreen</item>
+        <item>@color/DarkGray</item>
+        <item>@color/DarkGoldenrod</item>
+        <item>@color/DarkKhaki</item>
+        <!-- Generic Light -->
+        <item>@color/LightGrey</item>
+        <item>@color/LightSteelBlue</item>
+        <item>@color/LightBlue</item>
+        <item>@color/LightPink</item>
+        <item>@color/LightSalmon</item>
+        <item>@color/LightCyan</item>
+        <item>@color/LightCoral</item>
+        <item>@color/LightSkyBlue</item>
+        <item>@color/LightSeaGreen</item>
+        <item>@color/LightSlateGray</item>
+        <item>@color/LightGreen</item>
+        <item>@color/LightYellow</item>
+        <item>@color/LightGoldenrodYellow</item>
+        <!-- Generic Medium -->
+        <item>@color/MediumSlateBlue</item>
+        <item>@color/MediumAquamarine</item>
+        <item>@color/MediumVioletRed</item>
+        <item>@color/MediumOrchid</item>
+        <item>@color/MediumPurple</item>
+        <item>@color/MediumBlue</item>
+        <item>@color/MediumTurquoise</item>
+        <item>@color/MediumSeaGreen</item>
+        <item>@color/MediumSpringGreen</item>
+
+        <!-- a -->
+        <item>@color/Azure</item>
+        <item>@color/AliceBlue</item>
+        <item>@color/AntiqueWhite</item>
+        <item>@color/Aquamarine</item>
+        <!-- b -->
+        <item>@color/Beige</item>
+        <item>@color/BurlyWood</item>
+        <item>@color/Brown</item>
+        <item>@color/BlueViolet</item>
+        <item>@color/aqua</item>
+        <item>@color/Bisque</item>
+        <item>@color/BlanchedAlmond</item>
+        <!-- c -->
+        <item>@color/Cornsilk</item>
+        <item>@color/Coral</item>
+        <item>@color/Chocolate</item>
+        <item>@color/Crimson</item>
+        <item>@color/CornflowerBlue</item>
+        <item>@color/CadetBlue</item>
+        <item>@color/Chartreuse</item>
+        <!-- d -->
+        <item>@color/DeepPink</item>
+        <item>@color/DeepSkyBlue</item>
+        <item>@color/DimGray</item>
+        <item>@color/DodgerBlue</item>
+        <!-- e -->
+        <!-- f -->
+        <item>@color/fuchsia</item>
+        <item>@color/ForestGreen</item>
+        <item>@color/FloralWhite</item>
+        <item>@color/FireBrick</item>
+        <item>@color/Fuchsia</item>
+        <!-- g -->
+        <item>@color/Gold</item>
+        <item>@color/GreenYellow</item>
+        <item>@color/gray</item>
+        <item>@color/Goldenrod</item>
+        <item>@color/Gainsboro</item>
+        <item>@color/GhostWhite</item>
+        <!-- h -->
+        <item>@color/Honeydew</item>
+        <item>@color/HotPink</item>
+        <!-- i -->
+        <item>@color/Indigo</item>
+        <item>@color/Ivory</item>
+        <item>@color/IndianRed</item>
+        <!-- j -->
+        <!-- k -->
+        <item>@color/Khaki</item>
+        <!-- l -->
+        <item>@color/lime</item>
+        <item>@color/LawnGreen</item>
+        <item>@color/LavenderBlush</item>
+        <item>@color/Linen</item>
+        <item>@color/LemonChiffon</item>
+        <item>@color/Lavender</item>
+        <item>@color/LimeGreen</item>
+        <!-- m -->
+        <item>@color/maroon</item>
+        <item>@color/Moccasin</item>
+        <item>@color/Maroon</item>
+        <item>@color/MintCream</item>
+        <item>@color/Magenta</item>
+        <item>@color/MidnightBlue</item>
+        <item>@color/MistyRose</item>
+        <!-- n -->
+        <item>@color/navy</item>
+        <item>@color/NavajoWhite</item>
+        <!-- o -->
+        <item>@color/olive</item>
+        <item>@color/OliveDrab</item>
+        <item>@color/OrangeRed</item>
+        <item>@color/OldLace</item>
+        <item>@color/Orchid</item>
+
+        <!-- p -->
+        <item>@color/PeachPuff</item>
+        <item>@color/Pink</item>
+        <item>@color/Peru</item>
+        <item>@color/PaleGoldenrod</item>
+        <item>@color/PaleVioletRed</item>
+        <item>@color/Plum</item>
+        <item>@color/PaleGreen</item>
+        <item>@color/PowderBlue</item>
+        <item>@color/PaleTurquoise</item>
+        <item>@color/PapayaWhip</item>
+        <!-- q -->
+        <!-- r -->
+        <item>@color/RoyalBlue</item>
+        <item>@color/RosyBrown</item>
+        <!-- s -->
+        <item>@color/silver</item>
+        <item>@color/Seashell</item>
+        <item>@color/Snow</item>
+        <item>@color/Sienna</item>
+        <item>@color/SpringGreen</item>
+        <item>@color/SkyBlue</item>
+        <item>@color/SeaGreen</item>
+        <item>@color/SteelBlue</item>
+        <item>@color/SlateGray</item>
+        <item>@color/SlateBlue</item>
+        <item>@color/SaddleBrown</item>
+        <item>@color/Salmon</item>
+        <item>@color/SandyBrown</item>
+
+        <!-- t -->
+        <item>@color/Thistle</item>
+        <item>@color/Turquoise</item>
+        <item>@color/Tan</item>
+        <item>@color/Tomato</item>
+        <!-- u -->
+        <!-- v -->
+        <item>@color/purple</item>
+        <item>@color/Violet</item>
+        <!-- w -->
+        <item>@color/WhiteSmoke</item>
+        <item>@color/Wheat</item>
+        <!-- x -->
+        <!-- y -->
+
+        <item>@color/YellowGreen</item>
+        <!-- z -->
+
+    </integer-array>
+
+</resources>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+            android:text="@string/bg_color"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner1"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/label_to_view_margin"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+            android:text="@string/text_color"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_marginLeft="@dimen/label_to_view_margin"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+            android:text="@string/text_style"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner3"
+
+            android:minHeight="@dimen/touched_view_min_height"
+            android:layout_marginLeft="@dimen/label_to_view_margin"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+            android:text="@string/text_size"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner4"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/label_to_view_margin"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+            android:text="@string/ceil_width"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner5"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/label_to_view_margin"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/ChoiceButtonBar"
+        android:layout_marginTop="@dimen/padding_top_8dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/ok"
+            android:id="@+id/button_ok"
+            style="@style/ChoiceButtonBarButton"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            android:id="@+id/button_cancel"
+            style="@style/ChoiceButtonBarButton"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

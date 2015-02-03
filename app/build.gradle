@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '21.0.2'
+    defaultConfig {
+        applicationId "com.drprog.sjournal"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 18
+        versionName "0.9.10b"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+    productFlavors {
+        pro {
+            applicationId 'com.drprog.sjournal.full'
+            buildConfigField 'boolean', 'IS_VERSION_FREE', 'false'
+            buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal.full\""
+            buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal.full\""
+        }
+        free {
+            buildConfigField 'boolean', 'IS_VERSION_FREE', 'true'
+            buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal\""
+            buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal\""
+        }
+
+        pro_slideme {
+            applicationId 'com.drprog.sjournal.full'
+            buildConfigField 'boolean', 'IS_VERSION_FREE', 'false'
+            buildConfigField 'String', 'URI_MARKET', "\"sam://details?bundleId=e14af0ca-4047-11e4-815d-a97036bc0e10\""
+            buildConfigField 'String', 'URI_MARKET_URL', "\"http://slideme.org/app/com.drprog.sjournal.full\""
+        }
+        free_slideme {
+            buildConfigField 'boolean', 'IS_VERSION_FREE', 'true'
+            buildConfigField 'String', 'URI_MARKET', "\"sam://details?bundleId=26ef3746-4046-11e4-815d-a97036bc0e10\""
+            buildConfigField 'String', 'URI_MARKET_URL', "\"http://slideme.org/app/com.drprog.sjournal\""
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:support-v13:18.0.0"
+}

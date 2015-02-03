@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="text_style">
+        <item>@string/typeface_normal</item>
+        <item>@string/typeface_bold</item>
+        <item>@string/typeface_italic</item>
+        <item>@string/typeface_bold_italic</item>
+    </string-array>
+
+
+
+    <string-array name="preference_blank_class_style_entries">
+        <item>@string/class_abbr_and_date</item>
+        <item>@string/class_ony_abbr</item>
+        <item>@string/class_only_date</item>
+    </string-array>
+    <string-array name="preference_blank_name_format_entries">
+        <item>@string/student_name_full_dot_dot</item>
+        <item>@string/student_name_full_full_full</item>
+        <item>@string/student_name_full_full_dot</item>
+        <item>@string/student_name_full_full</item>
+        <item>@string/student_name_full_dot</item>
+    </string-array>
+    <string-array name="preference_blank_symbol_format_entries">
+        <item>@string/symbol_ellipsize</item>
+        <item>@string/symbol_place_in_ceil</item>
+        <item>@string/symbol_place_in_ceil_inc_width</item>
+    </string-array>
+
+
+</resources>

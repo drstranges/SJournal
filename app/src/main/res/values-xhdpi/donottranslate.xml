@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="profile_default_blank">" VALUES (\"Default\",11,0,NULL,-2,-2,NULL,NULL,NULL,17,NULL,0,0,0,0,0,0,0,0);"</string>
+    <string name="profile_default_table">" VALUES (\"Default\",10,-16777216,NULL,-2,-2,NULL,NULL,NULL,17,NULL,0,0,0,0,0,0,0,0);"</string>
+    <string name="profile_default_topic_text">" VALUES (\"Default\",1,-16744320,NULL,-1,-2,20,2,-1,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_num_top">" VALUES (\"Default\",2,-16733271,40,-2,-1,12,0,-16777216,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_num_left">" VALUES (\"Default\",3,-9868951,40,-2,-1,14,0,-1,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_name_top">" VALUES (\"Default\",4,-16733271,400,-2,-1,16,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_name_left">" VALUES (\"Default\",5,-16713062,400,-2,-1,24,0,-16777216,19,1,4,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_class_top">" VALUES (\"Default\",6,-2031617,180,-2,-1,16,0,-16777216,17,NULL,0,0,0,0,1,1,1,1);"</string>
+    <string name="profile_default_class_body">" VALUES (\"Default\",7,-7876870,180,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_add_col">" VALUES (\"Default\",8,-5192482,100,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+    <string name="profile_default_absent_ceil">" VALUES (\"Default\",12,-5192482,180,-2,-1,24,0,-16777216,17,1,0,7,0,7,1,1,1,1);"</string>
+
+</resources>

@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+
+        android:id="@+id/mainContainer"
+
+        android:layout_gravity="bottom|left|top"
+        android:measureAllChildren="false">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rightContainer"
+        android:paddingLeft="@dimen/rightContainer_paddingLeft"
+        android:layout_gravity="bottom|right">
+
+
+    </FrameLayout>
+
+</FrameLayout>

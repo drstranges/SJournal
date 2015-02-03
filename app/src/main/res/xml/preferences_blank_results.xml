@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="PREFS_BLANK_SUMMARY_SHOW_COLS_AVG"
+        android:defaultValue="true"
+        android:summary="@string/preference_blank_summary_show_cols_summary"
+        android:title="@string/preference_blank_summary_show_cols_title"/>
+
+
+</PreferenceScreen>

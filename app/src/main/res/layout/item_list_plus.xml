@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:minHeight="@dimen/touched_view_min_height"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/imageButton"
+                 android:src="@android:drawable/ic_input_add"
+                 android:background="@drawable/selector_list_plus_button"
+                 android:clickable="false"
+                 android:scaleType="center"
+    android:contentDescription="@string/menu_add">
+
+    </ImageView>

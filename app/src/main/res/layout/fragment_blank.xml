@@ -1,0 +1,81 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topChoiceBar"
+        android:minHeight="@dimen/touched_view_min_height"
+        style="@style/ChoiceButtonBar">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/group"
+            android:id="@+id/btn_group_choice"
+            android:layout_weight="1"
+            android:minHeight="@dimen/touched_view_min_height"
+            style="@style/ChoiceButtonBarButton"
+            android:layout_margin="@dimen/choice_panel_margin"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            android:id="@+id/btn_subject_choice"
+            android:layout_weight="4"
+            android:minHeight="@dimen/touched_view_min_height"
+            style="@style/ChoiceButtonBarButton"
+            android:layout_margin="@dimen/choice_panel_margin"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/class_type"
+            android:id="@+id/btn_class_type_choice"
+            android:layout_weight="1"
+            android:minHeight="@dimen/touched_view_min_height"
+            android:layout_margin="@dimen/choice_panel_margin"
+            style="@style/ChoiceButtonBarButton"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogContainer">
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/blankLayout">
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialogContainerTop">
+        </LinearLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible"/>
+    </FrameLayout>
+
+</LinearLayout>

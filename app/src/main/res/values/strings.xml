@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <string name="app_name">SJournal</string>
+    <string name="menu_settings">Settings</string>
+    <string name="symbol_num">No.</string>
+    <string name="symbol_col_add">+</string>
+    <string name="symbol_absent">a</string>
+    <string name="symbol_row_add">+</string>
+    <string name="preferences_category_blank">Table format</string>
+    <string name="preference_blank_class_style">Classes output format</string>
+    <string name="preference_blank_class_style_summary">The display format of classes</string>
+    <string name="preference_blank_class_style_dialog_title">Classes format</string>
+    <string name="preferences_header_blank_title">Blank</string>
+    <string name="preferences_header_blank_summary">Blank format</string>
+    <string name="preference_blank_name_format">Student Names</string>
+    <string name="preference_blank_name_format_summary">The display format of student names</string>
+    <string name="preference_blank_name_format_dialog_title">Name format</string>
+    <string name="preference_blank_symbol_format">Notes</string>
+    <string name="preference_blank_symbol_format_summary">Format text notes in the table cells</string>
+    <string name="preference_blank_symbol_format_dialog_title">Note format</string>
+    <string name="preference_blank_absent_symbol_title">Symbol \"Absent\"</string>
+    <string name="preference_blank_absent_symbol_summary">The absent symbol (up to 3 characters)</string>
+    <string name="preferences_title">Settings</string>
+    <string name="dialog_group_add_hint">Enter the group code…</string>
+    <string name="dialog_subject_add_title_hint">New Subject title…</string>
+    <string name="dialog_subject_add_abbr_hint">Acronym of new Subject…</string>
+    <string name="dialog_class_type_add_title_hint">Name…</string>
+    <string name="dialog_class_type_add_abbr_hint">Acronym…</string>
+    <string name="dialog_class_type_update_title_hint">New name…</string>
+    <string name="dialog_class_type_update_abbr_hint">New acronym</string>
+    <string name="error_entry_start_with_space">Caution! Space at the beginning of names will not allow! </string>
+    <string name="error">Something went wrong! Error!</string>
+    <string name="empty">Empty</string>
+    <string name="error_entry_exists">Record already exists!</string>
+    <string name="dialog_group_update_hint">Enter the new name</string>
+    <string name="dialog_group_add_title">Create a new group</string>
+    <string name="dialog_group_update_title">Change group name</string>
+    <string name="dialog_group_delete_title">Deleting a group</string>
+    <string name="dialog_group_delete_with_students">Remove all students</string>
+    <string name="error_group_contains_students">Removal is not possible! Group contains records of students.</string>
+    <string name="dialog_group_delete_alert_delete_students">Caution!\nAll data about students, members only in this group will be deleted.</string>
+    <string name="list_empty"> List is empty!</string>
+    <string name="dialog_subject_add_title">Creating a new subject…</string>
+
+
+    <string name="dialog_subject_update_title">Subject edit…</string>
+    <string name="error_entry_not_specify">Fill in all required fields!</string>
+    <string name="dialog_subject_delete_title">Deleting subject…</string>
+
+    <string name="dialog_student_delete_are_you_sure">This will erase all records associated with the student in all groups!\nAll power to delete?</string>
+    <string name="student_id">Student ID</string>
+    <string name="student_id_hint">Unique id</string>
+    <string name="name_last">Last Name</string>
+    <string name="name_last_hint">Enter the last name</string>
+    <string name="name_first">First Name</string>
+    <string name="name_first_hint">Enter the first name</string>
+    <string name="name_middle">Middle Name</string>
+    <string name="name_middle_hint">Enter the middle name</string>
+    <string name="groups">Groups</string>
+    <string name="dialog_groups_choice_hint">Select groups</string>
+    <string name="get_choice">Select</string>
+    <string name="e_mail">e-mail</string>
+    <string name="phone_mob">Mob. Phone</string>
+    <string name="phone_home">Phone</string>
+    <string name="note">Note</string>
+    <string name="e_mail_hint">e-mail is not specified</string>
+    <string name="phone_mob_hint">Mob. phone</string>
+    <string name="phone_home_hint">Phone</string>
+    <string name="note_hint">Any text</string>
+    <string name="dialog_student_add_title">Adding a student…</string>
+    <string name="preference_general_auto_student_id_summary">Enter Student ID manually</string>
+    <string name="preference_general_auto_student_id_title">Student ID</string>
+    <string name="preferences_header_general_title">General</string>
+    <string name="preferences_header_general_summary">General Settings</string>
+    <string name="error_student_id_exist">ID is already in use! Please, enter new value!</string>
+    <string name="dialog_student_add_group_not_selected">Select groups!</string>
+    <string name="dialog_student_select_groups_title">Select groups…</string>
+    <string name="dialog_student_update_title">Editing student\'s info…</string>
+    <string name="dialog_student_delete_title">Deleting a record of the student…</string>
+    <string name="change">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="group">Group</string>
+    <string name="subject">Subject</string>
+    <string name="class_type">Type of class</string>
+    <string name="dialog_group_choice_title">Groups</string>
+    <string name="dialog_subject_choice_title">Subjects</string>
+    <string name="fio">Student Name</string>
+    <string name="dialog_choice_more">More</string>
+    <string name="dialog_choice_add">Add</string>
+    <string name="menu_group">Groups</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_update">Edit</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_subject">Subjects</string>
+    <string name="dialog_subject_delete_are_you_sure">Caution!\nWill be deleting all classes and marks for this Subject</string>
+    <string name="dialog_class_type_add_title">Adding a new type of class…</string>
+    <string name="dialog_class_type_update_title">Editing type of class…</string>
+    <string name="dialog_class_type_delete_title">Deleting type of class…</string>
+    <string name="dialog_class_type_delete_are_you_sure">Caution!\nWill be deleting all marks for this type of class!</string>
+    <string name="menu_class_type">Class types</string>
+
+    <string name="menu_student">Students</string>
+    <string name="dialog_student_select_title">Choice a Student…</string>
+    <string name="theme_abbr">Short title</string>
+    <string name="theme_abbr_hint">Enter the short title of class</string>
+    <string name="theme">Theme</string>
+    <string name="theme_hint">Enter the topic name</string>
+    <string name="color">Color</string>
+    <string name="dialog_color_choice">Select the color</string>
+    <string name="dialog_class_add_title">New Class…</string>
+    <string name="dialog_class_update_title">Edit Class…</string>
+    <string name="dialog_class_delete_title">Delete Class…</string>
+    <string name="create">Create</string>
+    <string name="update">Edit</string>
+    <string name="back_to_exit">Press twice to close…</string>
+    <string name="dialog_class_delete_are_you_sure">Remove class?</string>
+
+    <string name="mark_note">Note</string>
+    <string name="mark">Mark</string>
+
+    <string name="preference_mark_scale_set_title">Rating scale</string>
+    <string name="preference_mark_scale_set_summary">List of marks for quick access</string>
+    <string name="preference_mark_scale_set_dialog_title">Enter a comma-separated list of marks</string>
+    <string name="preference_symbol_set_title">Symbols</string>
+    <string name="preference_symbol_set_summary">List of symbols for quick access</string>
+    <string name="preference_symbol_set_dialog_title">Enter a comma-separated list of symbols</string>
+    <string name="dialog_mark_symbol_enter_title">Write a note</string>
+    <string name="dialog_mark_symbol_enter_hint">Any symbols</string>
+
+    <string name="dialog_mark_mark_enter_hint">Enter any mark</string>
+    <string name="menu_delete_in_group">Remove from group</string>
+    <string name="delete_student_only_one_group">Student is enrolled only in this group!\nPossibly only complete deleting!</string>
+
+    <string name="menu_delete_full">Delete</string>
+    <string name="blank_absent_row">Absent</string>
+    <string name="error_file_exists">Error!\nFile exists!</string>
+    <string name="menu_database">Database</string>
+    <string name="menu_database_export">Backup</string>
+    <string name="menu_database_restore">Restore</string>
+    <string name="dialog_database_backup_title">Enter the file name</string>
+    <string name="dialog_database_backup_edit_hint">File name…</string>
+    <string name="db_save_ok">Database saved successful</string>
+    <string name="error_ext_storage_not_writable">Error!\nExternal Storage not found!</string>
+    <string name="dialog_database_restore_title">Restoring a saved copy of the database</string>
+    <string name="dialog_database_backup_list_empty">Backup files not found…</string>
+
+    <string name="dialog_import_students_file_list_empty">In the directory \"import\" files *.csv not found</string>
+    <string name="menu_import">Import from File</string>
+    <string name="dialog_import_check">Check</string>
+    <string name="do_import">Import</string>
+    <string name="error_iofile">Error file system access!\nProbably is no external drive (External SD)</string>
+    <string name="dialog_import_students_title">Importing a list of students…</string>
+    <string name="error_file_not_exists">File does not exist!</string>
+    <string name="error_file_size_limit">Error! The File is too large!\nThe maximum file size is 50 KB (!)</string>
+
+    <string name="dialog_encode">Encode:</string>
+    <string name="dialog_file">File:</string>
+    <string name="dialog_group_list_empty">List is empty…</string>
+    <string name="dialog_import_group_not_selected">The Group is not selected!\nImport not available!</string>
+    <string name="dialog_result_format">Imported %1$d of %2$d.\nGenerated new id for %3$d student(s)!\n\nThe right of imports:\n- Records that contain errors will be not imported!\n- in coincidence with the student id available in the database, the record will not be added!\n-for records without id, it will be automatically generated from a random number!</string>
+    <string name="dialog_import_successful">Import successfully completed!</string>
+    <string name="dialog_import_data_empty">Data not recognized…\nCheck the file structure!</string>
+    <string name="import_rule">To import a list of students:\n1. Create a text file in the format .csv\nExample:\n=====================\nFile name: Group1.csv\n{id; (may be missing)}[Last Name];[First Name];[Middle Name];[e-mail];[phone1];[phone2];[note]\n=====================\n2. Place the file in the directory SJournal_Data\\import on the External SD.\n3. Do import.\n*. In the .csv format can be easily imported any list of students from Excel or other text editor.</string>
+    <string name="menu_blank_style">Table style</string>
+    <string name="fragment_blank_style_topic">Title</string>
+    <string name="study_class">Class</string>
+
+    <string name="bg_color">Background color</string>
+    <string name="text_color">Text color</string>
+    <string name="text_style">Text style</string>
+    <string name="text_size">Text size</string>
+    <string name="ceil_width">Column width</string>
+
+
+    <string name="bg_color_table">Table Background</string>
+    <string name="bg_color_blank">Blank Background</string>
+    <string name="current_profile">Current profile</string>
+    <string name="dialog_load_dimensions_title">Choice profile</string>
+    <string name="dialog_save_dimensions_title">Save profile</string>
+    <string name="dialog_save_dimensions_hint">Enter the profile name</string>
+    <string name="dialog_profile_not_saved">Profile is not saved!</string>
+    <string name="dialog_profile_save_success">Profile has been successfully saved!</string>
+    <string name="dialog_not_try_update_default_profile">Profile is not saved!\nEnter another name!</string>
+    <string name="dialog_delete_profile_title">Delete profile?</string>
+    <string name="dialog_profile_delete_success">Profile has been deleted!</string>
+    <string name="dialog_dimension_style_set_title">Specify the style</string>
+    <string name="save_changes">Save changes</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="lesson_abr">\"Les\"</string>
+    <string name="lesson_title">\"Lesson\"</string>
+    <string name="practice_abr">\"Pr\"</string>
+    <string name="practice_title">\"Practice work\"</string>
+    <string name="lab_abr">\"Lab\"</string>
+    <string name="lab_title">\"Laboratory work\"</string>
+    <string name="menu_semester_select">Choice semester</string>
+    <string name="menu_semester_format">Semester %1$d</string>
+    <string name="dialog_semester_choice_title">Select the current semester</string>
+    <string name="menu_blank_type_summary">Rating</string>
+    <string name="menu_blank_type_classes">Statement</string>
+    <string name="dialog_sum_entry_add_title">New position in blank of results</string>
+    <string name="dialog_sum_entry_update_title">Editing position</string>
+    <string name="dialog_sum_entry_delete_title">Deleting position</string>
+    <string name="absent_num">Absences</string>
+    <string name="rules">Rules</string>
+    <string name="they_all">all</string>
+    <string name="dialog_choice_rule_title">Select a rule</string>
+    <string name="dialog_create_rule_title">Create a rule</string>
+    <string name="string_if">IF</string>
+    <string name="string_then">THEN</string>
+
+    <string name="error_entry_not_added_values_not_specify">Entry not added!\nFill in required fields!</string>
+    <string name="rule_created_successfully">Rule has been created</string>
+    <string name="rule_exists">Such a rule already exists!</string>
+    <string name="sum_entry_created">Position has been created!</string>
+    <string name="result">Results</string>
+    <string name="not_use_for_result">Do not count in results</string>
+    <string name="sum_entry_updated">Position has been updated!</string>
+    <string name="sum_entry_deleted">Position has been deleted!</string>
+    <string name="menu_blank_panel_show">Show/hide panel</string>
+    <string name="menu_blank_group_select">Group</string>
+    <string name="menu_blank_subject_select">Subject</string>
+    <string name="menu_blank_class_type_select">Class Type</string>
+
+    <string name="typeface_normal">Normal</string>
+    <string name="typeface_bold">Bold</string>
+    <string name="typeface_italic">Italic</string>
+    <string name="typeface_bold_italic">Bold italic</string>
+    <string name="class_abbr_and_date">Short title and Date</string>
+    <string name="class_ony_abbr">Only short title</string>
+    <string name="class_only_date">Only date</string>
+    <string name="student_name_full_dot_dot">Surname F. M.</string>
+    <string name="student_name_full_full_full">Surname FirstName MiddleName</string>
+    <string name="student_name_full_dot">Surname F.</string>
+    <string name="student_name_full_full">Surname FirstName</string>
+    <string name="student_name_full_full_dot">Surname FirstName M.</string>
+    <string name="symbol_ellipsize">Ellipsize</string>
+    <string name="symbol_place_in_ceil">Fit into the cell (decrease the text size)</string>
+    <string name="symbol_place_in_ceil_inc_width">Fit into the cell (increase the column width)(not implemented at now)</string>
+    <string name="menu_blank_add_class_absents_select">New Class</string>
+    <string name="menu_about">About</string>
+    <string name="dialog_about_message">Given app is designed for university teachers.\n\n
+        Constructive criticism, remarks and suggestions are welcome!</string>
+    <string name="dialog_about_message_title">
+        <![CDATA[<b>SJournal v%1$s (<i>by d_romka</i>)</b> - %2$s<br/>
+        <b>Academic Journal</b>
+        ]]>
+        </string>
+    <string name="dialog_about_go_to_forum">Go to Forum</string>
+    <string name="dialog_about_go_to_google_app_store">App Store</string>
+    <string name="dialog_about_send_email">Send e-mail</string>
+
+    <string name="menu_help">Help</string>
+    <string name="send_email">Send</string>
+    <string name="send_message">SMS</string>
+    <string name="menu_export">Export</string>
+    <string name="menu_export_img">To Image</string>
+
+    <string name="dialog_version_restriction_message">Not available in free version!</string>
+    <string name="dialog_mark_mark_enter_title">Enter mark</string>
+    <string name="preference_general_calendar_sync_summary">Autoselect blank on start, if title of current event in Calendar contains group/subject/type names.</string>
+    <string name="preference_general_calendar_sync_title">Sync with Calendar</string>
+    <string name="preference_general_calendar_sync_window_summary">Look for 5 minutes after and before the current time.</string>
+    <string name="preference_general_calendar_sync_window_title">Events in 5 minutes window</string>
+    <string name="calendar_sync_query_title">Calendar Sync Complete</string>
+    <string name="calendar_sync_with_event_complete">Blank have been synced with calendar\'s event:\n%1$s.</string>
+    <string name="preferences_header_blank_summary_summary">Result\'s table format</string>
+    <string name="preferences_header_blank_summary_title">Result\'s Table</string>
+    <string name="preference_blank_summary_show_cols_title">Average values</string>
+    <string name="preference_blank_summary_show_cols_summary">Show average column in rating\'s blank</string>
+    <string name="result_avg">Avg</string>
+    <string name="preference_edit_class_on_click_title">Edit Class by short click</string>
+    <string name="preference_edit_class_on_click_summary">If set allow editing on Click, else - on Long Click</string>
+
+
+</resources>

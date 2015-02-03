@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/list_item_padding_left"
+            android:text="@string/string_if"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Button
+            android:id="@+id/buttonRuleOp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minEms="5"
+            android:gravity="center_horizontal"
+            android:inputType="numberDecimal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:text="@string/string_then"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <EditText
+            android:id="@+id/edit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minEms="5"
+            android:gravity="center_horizontal"
+            android:inputType="numberDecimal"
+            />
+
+    </LinearLayout>

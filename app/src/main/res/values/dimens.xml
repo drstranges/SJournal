@@ -1,0 +1,32 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="stroke_1dp">1dp</dimen>
+    <dimen name="stroke_3dp">3dp</dimen>
+    <dimen name="button_height_80dp">80dp</dimen>
+    <dimen name="stroke_5dp">5dp</dimen>
+    <dimen name="rightContainer_paddingLeft">5dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="layoutDate_minWidth">150dp</dimen>
+    <dimen name="textViewDay_textSize">40sp</dimen>
+    <dimen name="textViewYear_textSize">38sp</dimen>
+    <dimen name="button_color_minWidth">100dp</dimen>
+    <dimen name="padding_top_8dp">8dp</dimen>
+    <dimen name="label_to_view_margin">10dp</dimen>
+    <dimen name="touched_view_min_height">48dp</dimen>
+    <dimen name="choice_grid_item_width">200dp</dimen>
+    <dimen name="progress_bar_margin">5dp</dimen>
+    <dimen name="list_divider_height">5dp</dimen>
+    <dimen name="list_view_min_height">100dp</dimen>
+    <dimen name="mark_grid_item_width">100dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="view_to_view_vertical_margin">5dp</dimen>
+    <dimen name="choice_panel_margin">2dp</dimen>
+    <dimen name="blank_style_margin_left">10dp</dimen>
+    <dimen name="grid_layout_padding_2dp">2dp</dimen>
+    <dimen name="btn_small_min_width">50dp</dimen>
+    <dimen name="btn_medium_min_width">100dp</dimen>
+    <dimen name="view_group_to_view_group_vertical_margin_large">20dp</dimen>
+    <dimen name="list_item_padding_left">20dp</dimen>
+</resources>

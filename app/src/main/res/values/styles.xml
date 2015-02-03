@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
+        <item name="android:gridViewStyle">@style/SpinnerItem</item>
+        <item name="android:dialogTheme">@style/DialogTheme</item>
+
+    </style>
+
+    <style name="DialogTheme" parent="android:Theme.Holo.Light.Dialog">
+    </style>
+
+    <style name="SpinnerItem">
+        <item name="android:textColor">#993399</item>
+        <item name="android:background">@drawable/spinner_item_rect</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">#993399</item>
+        <item name="android:background">@drawable/spinner_dropdown_rect</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/list_item_padding_left</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/touched_view_min_height</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="ChoiceButtonBarButton" parent="android:Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/selector_choice_bar_button</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ChoiceButtonBar" parent="android:Holo.Light.ButtonBar">
+        <item name="android:background">@drawable/btn_choice_bg</item>
+    </style>
+
+
+    <style name="ToggleButton" parent="android:Widget.Holo.Light.Button.Toggle">
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_btn_toggle</item>
+    </style>
+
+
+    <style name="Transparent" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

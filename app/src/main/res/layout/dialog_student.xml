@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_4dp"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_4dp">
+
+                <Switch
+                    android:id="@+id/switchId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:singleLine="true"
+                    android:text="@string/student_id"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/student_id_hint"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_last"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="textCapWords|textPersonName"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:hint="@string/name_last_hint"
+                    >
+
+                    <requestFocus/>
+                </EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_first"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="text|textCapWords|textPersonName"
+                    android:hint="@string/name_first_hint"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_middle"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    />
+
+                <EditText
+                    android:id="@+id/editMiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:inputType="text|textCapWords|textPersonName"
+                    android:hint="@string/name_middle_hint"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/groups"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editGroups"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center_horizontal"
+                        android:hint="@string/dialog_groups_choice_hint"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <Button
+                        android:id="@+id/buttonGroupsChoice"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/get_choice"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/e_mail"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editEMail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autoLink="email"
+                        android:ems="10"
+                        android:gravity="center_horizontal"
+                        android:imeOptions="actionSend"
+                        android:inputType="textEmailAddress"
+                        android:linksClickable="true"
+                        android:hint="@string/e_mail_hint"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <ImageButton
+                        android:id="@+id/button_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="false"
+                        android:background="@android:color/transparent"
+                        android:baselineAlignBottom="false"
+                        android:contentDescription="@string/send_email"
+                        android:cropToPadding="false"
+                        android:minWidth="@dimen/btn_small_min_width"
+                        android:scaleType="fitCenter"
+                        android:src="@android:drawable/ic_menu_send"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_mob"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editPhoneMob"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autoLink="phone"
+                        android:gravity="center_horizontal"
+                        android:inputType="phone"
+                        android:linksClickable="true"
+                        android:hint="@string/phone_mob_hint"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <ImageButton
+                        android:id="@+id/button_phone1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="false"
+                        android:background="@android:color/transparent"
+                        android:baselineAlignBottom="false"
+                        android:contentDescription="@string/send_message"
+                        android:cropToPadding="false"
+                        android:minWidth="@dimen/btn_small_min_width"
+                        android:scaleType="fitCenter"
+                        android:src="@android:drawable/ic_menu_call"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_home"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editPhoneHome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autoLink="phone"
+                        android:gravity="center_horizontal"
+                        android:inputType="phone"
+                        android:linksClickable="true"
+                        android:hint="@string/phone_home_hint"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <ImageButton
+                        android:id="@+id/button_phone2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="false"
+                        android:background="@android:color/transparent"
+                        android:baselineAlignBottom="false"
+                        android:contentDescription="@string/send_message"
+                        android:cropToPadding="false"
+                        android:minWidth="@dimen/btn_small_min_width"
+                        android:scaleType="fitCenter"
+                        android:src="@android:drawable/ic_menu_call"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <EditText
+                    android:id="@+id/editNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:gravity="fill_horizontal"
+                    android:hint="@string/note_hint"
+                    android:inputType="textShortMessage|textMultiLine|textCapSentences"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="?android:buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/padding_top_8dp">
+
+            <Button
+                android:id="@+id/button_cancel"
+                style="?android:buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/cancel"/>
+
+            <Button
+                android:id="@+id/button_ok"
+                style="?android:buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/ok"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
