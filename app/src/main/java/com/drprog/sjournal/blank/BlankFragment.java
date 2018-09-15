@@ -1,14 +1,18 @@
 package com.drprog.sjournal.blank;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.LoaderManager;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Loader;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -87,6 +91,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
 
     private static final String KEY_LAST_GST_HANDLER_TITLE = "KEY_LAST_GST_HANDLER_TITLE";
+    public static final int REQUEST_CODE_CHECK_CALENDAR_PERMISSION = 3001;
 
     private static enum ExportKey{NO_EXPORT, EXPORT_IMG, EXPORT_CSV}
 
@@ -220,11 +225,33 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
     }
 
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, final String[] permissions, final int[] grantResults) {
+        if (requestCode == REQUEST_CODE_CHECK_CALENDAR_PERMISSION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                boolean isSynced = calendarSync();
+                if (isSynced) refreshBlank();
+            } else {
+                PrefsManager.getInstance(getActivity()).getPrefs()
+                        .edit().putBoolean(PrefsManager.PREFS_CALENDAR_SYNC, false).apply();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
     private boolean calendarSync() {
         Boolean isSync = PrefsManager.getInstance(getActivity()).getPrefs()
-                                                .getBoolean(PrefsManager.PREFS_CALENDAR_SYNC,
-                                                           true);
+                                                .getBoolean(PrefsManager.PREFS_CALENDAR_SYNC, true);
         if (! isSync) return false;
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getContext().checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+                requestPermissions(new String[]{Manifest.permission.READ_CALENDAR}, REQUEST_CODE_CHECK_CALENDAR_PERMISSION);
+                return false;
+            }
+        }
+
         Boolean isWindow = PrefsManager.getInstance(getActivity()).getPrefs()
                 .getBoolean(PrefsManager.PREFS_CALENDAR_SYNC_WINDOW,
                             true);
