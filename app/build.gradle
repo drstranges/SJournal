@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "com.drprog.sjournal"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 21
         versionName "0.9.11a1"
     }
@@ -20,14 +19,17 @@ android {
 
         }
     }
+    flavorDimensions "version"
     productFlavors {
         pro {
+            dimension "version"
             applicationId 'com.drprog.sjournal.full'
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'false'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal.full\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal.full\""
         }
         free {
+            dimension "version"
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'true'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal\""
@@ -54,6 +56,5 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:support-v13:25.1.0"
+    implementation "com.android.support:support-v13:27.1.1"
 }
