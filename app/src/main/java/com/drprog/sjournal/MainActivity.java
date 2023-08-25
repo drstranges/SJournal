@@ -107,36 +107,33 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch (id) {
-            case R.id.menu_settings:
-                showPreferences();
-                return true;
-            case R.id.menu_database_export:
-                showBackUpDialog(BackupDbDialog.DIALOG_BACKUP);
-                return true;
-
-            case R.id.menu_database_restore:
-                showBackUpDialog(BackupDbDialog.DIALOG_RESTORE);
-                return true;
-            case R.id.menu_help:
-                showHelpDialog();
-                return true;
-            case R.id.menu_about:
-                showAboutDialog();
-                return true;
-            default:
-//                if (item.getTitle().equals("Debug: Clear DB")) {
-//                    DebugUtils.initDatabase(getApplicationContext());
-//                    return true;
-//                }
-//                if (item.getTitle().equals("Test 1")) {
-//                    showTest1();
-//                    return true;
-//                }
-//                if (item.getTitle().equals("Test 2")) {
-//
-//                    return true;
-//                }
+        //                if (item.getTitle().equals("Debug: Clear DB")) {
+        //                    DebugUtils.initDatabase(getApplicationContext());
+        //                    return true;
+        //                }
+        //                if (item.getTitle().equals("Test 1")) {
+        //                    showTest1();
+        //                    return true;
+        //                }
+        //                if (item.getTitle().equals("Test 2")) {
+        //
+        //                    return true;
+        //                }
+        if (id == R.id.menu_settings) {
+            showPreferences();
+            return true;
+        } else if (id == R.id.menu_database_export) {
+            showBackUpDialog(BackupDbDialog.DIALOG_BACKUP);
+            return true;
+        } else if (id == R.id.menu_database_restore) {
+            showBackUpDialog(BackupDbDialog.DIALOG_RESTORE);
+            return true;
+        } else if (id == R.id.menu_help) {
+            showHelpDialog();
+            return true;
+        } else if (id == R.id.menu_about) {
+            showAboutDialog();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

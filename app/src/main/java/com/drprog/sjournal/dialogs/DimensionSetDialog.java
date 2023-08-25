@@ -40,16 +40,14 @@ public class DimensionSetDialog extends BaseDialogFragment {
                         long id) {
                     if (position < 0) return;
                     int color = (int) id;
-                    switch (parent.getId()) {
-                        case R.id.spinner1:
-                            arg_dims.setBgColor(color);
+                    int parentId = parent.getId();
+                    if (parentId == R.id.spinner1) {
+                        arg_dims.setBgColor(color);
 //                    int pos = ((ColorAdapter) parent.getAdapter()).getItemPos(RunUtils.getContrastColor(color));
 //                    if (pos != -1) spinnerTextColor.setSelection(pos);
 //                    spinnerTextColor.setSelection(pos);
-                            break;
-                        case R.id.spinner2:
-                            arg_dims.setTextColor(color);
-                            break;
+                    } else if (parentId == R.id.spinner2) {
+                        arg_dims.setTextColor(color);
                     }
                 }
 

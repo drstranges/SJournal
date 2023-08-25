@@ -172,23 +172,21 @@ public class GroupChoiceFragment extends DialogFragment {
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (info.id < 0) return false;
-        switch (item.getItemId()) {
-            case R.id.context_menu_edit:
-                GroupAUDDialog.newInstance((Fragment) callback, BlankFragment.CODE_DIALOG_GROUP_AUD,
-                                           BaseAUDDialog.DIALOG_UPDATE, info.id)
-                        .show(getFragmentManager(), "dialog");
-                callback.onDialogResult(requestCode,
-                                        DialogClickListener.DialogResultCode.RESULT_NO,
-                                        null);
-                break;
-            case R.id.context_menu_delete:
-                GroupAUDDialog.newInstance((Fragment) callback, BlankFragment.CODE_DIALOG_GROUP_AUD,
-                                           BaseAUDDialog.DIALOG_DELETE, info.id)
-                        .show(getFragmentManager(), "dialog");
-                callback.onDialogResult(requestCode,
-                                        DialogClickListener.DialogResultCode.RESULT_NO,
-                                        null);
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.context_menu_edit) {
+            GroupAUDDialog.newInstance((Fragment) callback, BlankFragment.CODE_DIALOG_GROUP_AUD,
+                            BaseAUDDialog.DIALOG_UPDATE, info.id)
+                    .show(getFragmentManager(), "dialog");
+            callback.onDialogResult(requestCode,
+                    DialogClickListener.DialogResultCode.RESULT_NO,
+                    null);
+        } else if (itemId == R.id.context_menu_delete) {
+            GroupAUDDialog.newInstance((Fragment) callback, BlankFragment.CODE_DIALOG_GROUP_AUD,
+                            BaseAUDDialog.DIALOG_DELETE, info.id)
+                    .show(getFragmentManager(), "dialog");
+            callback.onDialogResult(requestCode,
+                    DialogClickListener.DialogResultCode.RESULT_NO,
+                    null);
         }
         return true;
     }

@@ -45,34 +45,24 @@ public class BlankStyleFragment extends Fragment implements DialogClickListener 
 
                 id = v.getId();
             }
-            switch (id) {
-                case R.id.blank_topic:
-                    key = Blank.KEY_TOPIC_TEXT;
-                    break;
-                case R.id.blank_num_top:
-                    key = Blank.KEY_NUM_TOP;
-                    break;
-                case R.id.blank_num_body:
-                    key = Blank.KEY_NUM_LEFT;
-                    break;
-                case R.id.blank_name_top:
-                    key = Blank.KEY_NAME_TOP;
-                    break;
-                case R.id.blank_name_body:
-                    key = Blank.KEY_NAME_LEFT;
-                    break;
-                case R.id.blank_class_top:
-                    key = Blank.KEY_CLASS_TOP;
-                    break;
-                case R.id.blank_class_body:
-                    key = Blank.KEY_CLASS_BODY;
-                    break;
-                case R.id.blank_add_column:
-                    key = Blank.KEY_ADD_COL;
-                    break;
-                case R.id.blank_absent_row:
-                    key = Blank.KEY_ABSENT_CEIL;
-                    break;
+            if (id == R.id.blank_topic) {
+                key = Blank.KEY_TOPIC_TEXT;
+            } else if (id == R.id.blank_num_top) {
+                key = Blank.KEY_NUM_TOP;
+            } else if (id == R.id.blank_num_body) {
+                key = Blank.KEY_NUM_LEFT;
+            } else if (id == R.id.blank_name_top) {
+                key = Blank.KEY_NAME_TOP;
+            } else if (id == R.id.blank_name_body) {
+                key = Blank.KEY_NAME_LEFT;
+            } else if (id == R.id.blank_class_top) {
+                key = Blank.KEY_CLASS_TOP;
+            } else if (id == R.id.blank_class_body) {
+                key = Blank.KEY_CLASS_BODY;
+            } else if (id == R.id.blank_add_column) {
+                key = Blank.KEY_ADD_COL;
+            } else if (id == R.id.blank_absent_row) {
+                key = Blank.KEY_ABSENT_CEIL;
             }
             showDimensionSetDialog(key);
         }
@@ -85,13 +75,11 @@ public class BlankStyleFragment extends Fragment implements DialogClickListener 
                         long id) {
                     if (position < 0) return;
                     Integer key = null;
-                    switch (parent.getId()) {
-                        case R.id.spinner1:
-                            key = Blank.KEY_BLANK;
-                            break;
-                        case R.id.spinner2:
-                            key = Blank.KEY_TABLE;
-                            break;
+                    int parentId = parent.getId();
+                    if (parentId == R.id.spinner1) {
+                        key = Blank.KEY_BLANK;
+                    } else if (parentId == R.id.spinner2) {
+                        key = Blank.KEY_TABLE;
                     }
                     if (key == null) return;
                     int color = (int) id;

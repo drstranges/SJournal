@@ -418,107 +418,84 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_blank_group_select:
-            case R.id.menu_blank_subject_select:
-            case R.id.menu_blank_class_type_select:
-                break;
-            default:
-                getFragmentManager()
-                        .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_blank_group_select
+                || itemId == R.id.menu_blank_subject_select
+                || itemId == R.id.menu_blank_class_type_select) {
+            //do nothing
+        } else {
+            getFragmentManager()
+                    .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
 
-        switch (item.getItemId()) {
-            case R.id.menu_blank_panel_show:
-                showChoicePanel();
-                break;
-            case R.id.menu_blank_group_select:
-                showGroupChoiceDialog(null, null);
-                break;
-            case R.id.menu_blank_subject_select:
-                showSubjectChoiceDialog(null, null);
-                break;
-            case R.id.menu_blank_class_type_select:
-                showClassTypeChoiceDialog(selectedSubjectId, selectedGroupId);
-                break;
-            case R.id.menu_blank_type_select:
-                toggleBlankType();
-                break;
-            case R.id.menu_semester_select:
-                showSemesterSelectDialog();
-                break;
-            case R.id.menu_blank_add_class_absents_select:
-                showAbsentsSelectDialog();
-                break;
-            case R.id.menu_group_add:
-                GroupAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_group_update:
-                GroupAUDDialog.newInstance(this, CODE_DIALOG_GROUP_AUD, BaseAUDDialog.DIALOG_UPDATE,
-                                           selectedGroupId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_group_delete:
-                GroupAUDDialog.newInstance(this, CODE_DIALOG_GROUP_AUD, BaseAUDDialog.DIALOG_DELETE,
-                                           selectedGroupId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_subject_add:
-                SubjectAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_subject_update:
-                SubjectAUDDialog
-                        .newInstance(this, CODE_DIALOG_SUBJECT_AUD, BaseAUDDialog.DIALOG_UPDATE,
-                                     selectedSubjectId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_subject_delete:
-                SubjectAUDDialog
-                        .newInstance(this, CODE_DIALOG_SUBJECT_AUD, BaseAUDDialog.DIALOG_DELETE,
-                                     selectedSubjectId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_class_type_add:
-                ClassTypeAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_class_type_update:
-                ClassTypeAUDDialog
-                        .newInstance(this, CODE_DIALOG_CLASS_TYPE_AUD, BaseAUDDialog.DIALOG_UPDATE,
-                                     selectedClassTypeId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_class_type_delete:
-                ClassTypeAUDDialog
-                        .newInstance(this, CODE_DIALOG_CLASS_TYPE_AUD, BaseAUDDialog.DIALOG_DELETE,
-                                     selectedClassTypeId)
-                        .show(getFragmentManager(), KEY_DIALOG_AUD);
-                break;
-            case R.id.menu_student_add:
-                showStudentAUDDialog(BaseAUDDialog.DIALOG_ADD, null, selectedGroupId);
-                break;
-            case R.id.menu_student_update:
-                showStudentAUDDialog(BaseAUDDialog.DIALOG_UPDATE, null, null);
-                break;
-            case R.id.menu_student_delete:
-                showStudentAUDDialog(BaseAUDDialog.DIALOG_DELETE, null, null);
-                break;
-            case R.id.menu_student_import:
-                ImportDialog.newInstance(this, CODE_DIALOG_IMPORT, selectedGroupId)
-                        .show(getFragmentManager(), KEY_DIALOG_IMPORT);
-                break;
-            case R.id.menu_blank_style:
-                showBlankStyleFragment();
-                break;
-            case R.id.menu_export_img:
-                if (!RunUtils.showMessageIfFree(getFragmentManager())){
-                    doExportImg(ExportKey.EXPORT_IMG);
-                }
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (itemId == R.id.menu_blank_panel_show) {
+            showChoicePanel();
+        } else if (itemId == R.id.menu_blank_group_select) {
+            showGroupChoiceDialog(null, null);
+        } else if (itemId == R.id.menu_blank_subject_select) {
+            showSubjectChoiceDialog(null, null);
+        } else if (itemId == R.id.menu_blank_class_type_select) {
+            showClassTypeChoiceDialog(selectedSubjectId, selectedGroupId);
+        } else if (itemId == R.id.menu_blank_type_select) {
+            toggleBlankType();
+        } else if (itemId == R.id.menu_semester_select) {
+            showSemesterSelectDialog();
+        } else if (itemId == R.id.menu_blank_add_class_absents_select) {
+            showAbsentsSelectDialog();
+        } else if (itemId == R.id.menu_group_add) {
+            GroupAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_group_update) {
+            GroupAUDDialog.newInstance(this, CODE_DIALOG_GROUP_AUD, BaseAUDDialog.DIALOG_UPDATE,
+                            selectedGroupId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_group_delete) {
+            GroupAUDDialog.newInstance(this, CODE_DIALOG_GROUP_AUD, BaseAUDDialog.DIALOG_DELETE,
+                            selectedGroupId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_subject_add) {
+            SubjectAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_subject_update) {
+            SubjectAUDDialog
+                    .newInstance(this, CODE_DIALOG_SUBJECT_AUD, BaseAUDDialog.DIALOG_UPDATE,
+                            selectedSubjectId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_subject_delete) {
+            SubjectAUDDialog
+                    .newInstance(this, CODE_DIALOG_SUBJECT_AUD, BaseAUDDialog.DIALOG_DELETE,
+                            selectedSubjectId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_class_type_add) {
+            ClassTypeAUDDialog.newInstance(null, null, BaseAUDDialog.DIALOG_ADD, null)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_class_type_update) {
+            ClassTypeAUDDialog
+                    .newInstance(this, CODE_DIALOG_CLASS_TYPE_AUD, BaseAUDDialog.DIALOG_UPDATE,
+                            selectedClassTypeId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_class_type_delete) {
+            ClassTypeAUDDialog
+                    .newInstance(this, CODE_DIALOG_CLASS_TYPE_AUD, BaseAUDDialog.DIALOG_DELETE,
+                            selectedClassTypeId)
+                    .show(getFragmentManager(), KEY_DIALOG_AUD);
+        } else if (itemId == R.id.menu_student_add) {
+            showStudentAUDDialog(BaseAUDDialog.DIALOG_ADD, null, selectedGroupId);
+        } else if (itemId == R.id.menu_student_update) {
+            showStudentAUDDialog(BaseAUDDialog.DIALOG_UPDATE, null, null);
+        } else if (itemId == R.id.menu_student_delete) {
+            showStudentAUDDialog(BaseAUDDialog.DIALOG_DELETE, null, null);
+        } else if (itemId == R.id.menu_student_import) {
+            ImportDialog.newInstance(this, CODE_DIALOG_IMPORT, selectedGroupId)
+                    .show(getFragmentManager(), KEY_DIALOG_IMPORT);
+        } else if (itemId == R.id.menu_blank_style) {
+            showBlankStyleFragment();
+        } else if (itemId == R.id.menu_export_img) {
+            if (!RunUtils.showMessageIfFree(getFragmentManager())) {
+                doExportImg(ExportKey.EXPORT_IMG);
+            }
+        } else {
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }
