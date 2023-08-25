@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,19 +12,13 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/dialog_file"/>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner1"/>
-
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/dialog_import_students_file_list_empty"
-        android:id="@+id/emptyFile"
-        android:gravity="center"
-        style="@style/SpinnerItem"/>
+        android:text="@string/dialog_import_students_pick_file_button"
+        android:id="@+id/openFileButton"
+        android:gravity="center"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -56,26 +51,12 @@
         android:gravity="center"
         style="@style/SpinnerItem"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dialog_import_check"
-            android:id="@+id/button_scan"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/do_import"
-            android:id="@+id/button_ok"
-            android:enabled="false"
-            android:layout_weight="1"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/do_import" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -91,7 +72,10 @@
         android:minHeight="@dimen/list_view_min_height"
         android:cacheColorHint="@android:color/transparent"
         android:divider="#ff457eff"
-        android:dividerHeight="@dimen/list_divider_height"/>
+        android:dividerHeight="@dimen/list_divider_height"
+        tools:listitem="@layout/item_import_student"
+        tools:itemCount="1"
+        />
 
     <TextView
         android:layout_width="match_parent"

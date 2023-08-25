@@ -2,6 +2,7 @@ package com.drprog.sjournal.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
 
 import com.drprog.sjournal.R;
@@ -20,28 +21,17 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Romka on 10.08.2014.
  */
 public class IOFiles {
     public static final String DIR_BACKUP = "backup";
-    public static final String DIR_IMPORT = "import";
     public static final String DIR_EXPORT_IMG = "export/img";
     public static final String FILE_BACKUP_EXT = ".dbk";
-    public static final String FILE_IMPORT_EXT = ".csv";
-    public static final long MAX_IMPORT_FILE_SIZE = 50 * 1024; // 50 kB
-
     private Context mainContext;
-    private String rootDirName = "SJournal_Data";
-
-    /**
-     * @param rootDirName directory in ExternalStorageDirectory
-     */
-    public IOFiles(Context mainContext, String rootDirName) {
-        this.mainContext = mainContext;
-        this.rootDirName = rootDirName;
-    }
+    private static String rootDirName = "SJournal_Data";
 
     public IOFiles(Context mainContext) {
         this.mainContext = mainContext;
@@ -71,28 +61,19 @@ public class IOFiles {
         }
     }
 
-    public static List<String> readFileEx(File file, String charsetName) {
+    public static List<String> readFileEx(Context context, Uri uri, String charsetName) throws IOException {
         List<String> stringList = new ArrayList<String>();
-        if (!isExternalStorageReadable()) {
-            return null;
-        }
-        if (!file.exists()) return null;
-        if (file.length() > MAX_IMPORT_FILE_SIZE) return null;
-        try {
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), charsetName));
-            String str;
-            while ((str = br.readLine()) != null) {
-                stringList.add(str);
+
+        try (InputStream inputStream = context.getContentResolver().openInputStream(uri);
+             BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringList.add(line);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return stringList;
     }
-
     public static List<File> searchFile(File folder, String fileExt) {
         List<File> list = new ArrayList<File>();
         for (final File file : folder.listFiles()) {
@@ -111,12 +92,12 @@ public class IOFiles {
         return list;
     }
 
-    public File getExternalPath(String dirName) {
+    public static File getExternalPath(String dirName) {
         if (!isExternalStorageWritable()) {
             return null;
         }
 
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath();
         if (rootDirName != null && !rootDirName.equals("")) path = path + "/" + rootDirName;
         if (dirName != null && !dirName.equals("")) path = path + "/" + dirName;
         File file = new File(path);

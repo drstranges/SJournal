@@ -147,9 +147,8 @@
     <string name="dialog_database_restore_title">Restoring a saved copy of the database</string>
     <string name="dialog_database_backup_list_empty">Backup files not found…</string>
 
-    <string name="dialog_import_students_file_list_empty">In the directory \"import\" files *.csv not found</string>
+    <string name="dialog_import_students_pick_file_button">Click to pick a file"</string>
     <string name="menu_import">Import from File</string>
-    <string name="dialog_import_check">Check</string>
     <string name="do_import">Import</string>
     <string name="error_iofile">Error file system access!\nProbably is no external drive (External SD)</string>
     <string name="dialog_import_students_title">Importing a list of students…</string>
@@ -163,7 +162,7 @@
     <string name="dialog_result_format">Imported %1$d of %2$d.\nGenerated new id for %3$d student(s)!\n\nThe right of imports:\n- Records that contain errors will be not imported!\n- in coincidence with the student id available in the database, the record will not be added!\n-for records without id, it will be automatically generated from a random number!</string>
     <string name="dialog_import_successful">Import successfully completed!</string>
     <string name="dialog_import_data_empty">Data not recognized…\nCheck the file structure!</string>
-    <string name="import_rule">To import a list of students:\n1. Create a text file in the format .csv\nExample:\n=====================\nFile name: Group1.csv\n{id; (may be missing)}[Last Name];[First Name];[Middle Name];[e-mail];[phone1];[phone2];[note]\n=====================\n2. Place the file in the directory SJournal_Data\\import on the External SD.\n3. Do import.\n*. In the .csv format can be easily imported any list of students from Excel or other text editor.</string>
+    <string name="import_rule">File format: csv, where each line is info about a student in format:\n{id; (may be missing)}[Last Name];[First Name];[Middle Name];[e-mail];[phone1];[phone2];[note]. Example:\n=====================\nFile name: Group1.csv\nPotter;Harry;;gp@gmail.com;;;The Boy Who Lived\n=====================\n*. In the .csv format can be easily imported any list of students from Excel or other text editor.</string>
     <string name="menu_blank_style">Table style</string>
     <string name="fragment_blank_style_topic">Title</string>
     <string name="study_class">Class</string>

@@ -1,8 +1,11 @@
 package com.drprog.sjournal.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,15 +40,16 @@ import java.util.List;
 public class ImportDialog extends BaseDialogFragment {
     private static final String TAG = "IMPORT_DIALOG_FRAGMENT";
     private static final String ARG_GROUP_ID = "ARG_GROUP_ID";
+
+    private static final int PICK_FILE = 301;
     private List<Student> studentList;
     private SQLiteJournalHelper dbHelper;
     private StudentImportListAdapter adapterListView;
     private Long argGroupId;
-    private Spinner spinnerFile;
+    private Button openFileButton;
     private Spinner spinnerEncoding;
     private Spinner spinnerGroup;
     private ListView listView;
-    private Button btnScan;
     private Button btnOk;
     private AsyncParseTask asyncParseTask;
     private AsyncImportTask asyncImportTask;
@@ -84,14 +88,12 @@ public class ImportDialog extends BaseDialogFragment {
             getDialog().setTitle(R.string.dialog_import_students_title);
         }
         final View v = inflater.inflate(R.layout.dialog_import, container);
-        spinnerFile = (Spinner) v.findViewById(R.id.spinner1);
+        openFileButton = (Button) v.findViewById(R.id.openFileButton);
+        openFileButton.setOnClickListener(view -> pickFile());
         spinnerEncoding = (Spinner) v.findViewById(R.id.spinner2);
         spinnerGroup = (Spinner) v.findViewById(R.id.spinner3);
         listView = (ListView) v.findViewById(R.id.listView);
-        btnScan = (Button) v.findViewById(R.id.button_scan);
         btnOk = (Button) v.findViewById(R.id.button_ok);
-        TextView emptyViewFile = (TextView) v.findViewById(R.id.emptyFile);
-        spinnerFile.setEmptyView(emptyViewFile);
         TextView emptyViewList = (TextView) v.findViewById(R.id.emptyList);
         listView.setEmptyView(emptyViewList);
         TextView emptyViewGroup = (TextView) v.findViewById(R.id.emptyGroup);
@@ -100,25 +102,10 @@ public class ImportDialog extends BaseDialogFragment {
         return v;
     }
 
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setRetainInstance(true);
-        IOFiles ioFiles = new IOFiles(getActivity());
-        final List<File> fileList = ioFiles.searchFile(IOFiles.DIR_IMPORT, IOFiles.FILE_IMPORT_EXT);
-        if (fileList != null) {
-            ArrayAdapter<String> adapterFile =
-                    new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,
-                                             IOFiles.extractFileNames(
-                                                     fileList)
-                    );
-            adapterFile.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinnerFile.setAdapter(adapterFile);
-
-        } else {
-            RunUtils.showToast(getActivity(), R.string.error_iofile);
-        }
 
         ArrayAdapter<String> adapterEncoding =
                 new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,
@@ -141,30 +128,6 @@ public class ImportDialog extends BaseDialogFragment {
         adapterListView = new StudentImportListAdapter(getActivity(), studentList);
         listView.setAdapter(adapterListView);
 
-        btnScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearLists();
-                int pos = spinnerFile.getSelectedItemPosition();
-                if (fileList != null && !fileList.isEmpty() && pos != -1) {
-                    File file = fileList.get(pos);
-                    if (!file.exists()) {
-                        RunUtils.showToast(getActivity(), R.string.error_file_not_exists);
-                        return;
-                    }
-                    if (file.length() > IOFiles.MAX_IMPORT_FILE_SIZE) {
-                        RunUtils.showToast(getActivity(), R.string.error_file_size_limit);
-                        return;
-                    }
-                    String charsetName = spinnerEncoding.getSelectedItem().toString();
-                    if (charsetName == null) charsetName = "UTF-8";
-
-                    //Async
-                    asyncParseTask = new AsyncParseTask();
-                    asyncParseTask.execute(new ImportFile(file, charsetName));
-                }
-            }
-        });
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,6 +144,35 @@ public class ImportDialog extends BaseDialogFragment {
             }
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICK_FILE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                Uri uri = data.getData();
+                analyzeFileForImport(uri);
+            }
+        }
+    }
+
+    private void pickFile() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("text/*");
+
+        startActivityForResult(intent, PICK_FILE);
+    }
+
+    private void analyzeFileForImport(Uri fileUri) {
+        clearLists();
+
+        String charsetName = (String) spinnerEncoding.getSelectedItem();
+        if (charsetName == null) charsetName = "UTF-8";
+
+        //Async
+        asyncParseTask = new AsyncParseTask();
+        asyncParseTask.execute(new ImportFile(fileUri, charsetName));
     }
 
     private void clearLists() {
@@ -247,9 +239,8 @@ public class ImportDialog extends BaseDialogFragment {
         progressBar.setMax(studentList.size());
         spinnerGroup.setEnabled(false);
         spinnerEncoding.setEnabled(false);
-        spinnerFile.setEnabled(false);
+        openFileButton.setEnabled(false);
         listView.setVisibility(View.GONE);
-        btnScan.setVisibility(View.GONE);
         btnOk.setVisibility(View.GONE);
         if (getDialog() != null) { getDialog().setCanceledOnTouchOutside(false); }
     }
@@ -286,10 +277,10 @@ public class ImportDialog extends BaseDialogFragment {
     }
 
     public class ImportFile {
-        public File file;
+        public Uri file;
         public String charsetName = "UTF-8";
 
-        public ImportFile(File file, String charsetName) {
+        public ImportFile(Uri file, String charsetName) {
             this.file = file;
             this.charsetName = charsetName;
         }
@@ -381,10 +372,9 @@ public class ImportDialog extends BaseDialogFragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            btnScan.setEnabled(true);
             spinnerGroup.setEnabled(true);
             spinnerEncoding.setEnabled(true);
-            spinnerFile.setEnabled(true);
+            openFileButton.setEnabled(true);
             postImportExecute(s);
         }
 

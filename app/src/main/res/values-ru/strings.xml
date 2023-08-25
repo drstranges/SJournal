@@ -148,9 +148,8 @@
     <string name="dialog_database_restore_title">Восстановление сохраненной копии базы</string>
     <string name="dialog_database_backup_list_empty">Сохраненные копии не найдены…</string>
 
-    <string name="dialog_import_students_file_list_empty">В директории импорта файлы *.csv не найдены</string>
+    <string name="dialog_import_students_pick_file_button">Нажмите тут для выбора файла</string>
     <string name="menu_import">Импорт из файла</string>
-    <string name="dialog_import_check">Проверить</string>
     <string name="do_import">Импортировать</string>
     <string name="error_iofile">Ошибка доступа к файловой системе!\nВозможно отсутствует внешний накопитель (External SD)</string>
     <string name="dialog_import_students_title">Импортирование списка студентов…</string>
@@ -164,7 +163,7 @@
     <string name="dialog_result_format">Импортировано %1$d из %2$d.\nСгенерировано %3$d новых id для студентов!\n\nПравила импорта:\n- записи, содержащие ошибки импортированы не будут!\n- при совпадении id студента с имеющимися в базе, запись добавлена не будет!\n-для записей без id последние будут сгенерированы автоматически из случайных чисел!</string>
     <string name="dialog_import_successful">Импорт завершен</string>
     <string name="dialog_import_data_empty">Данные о студентах не распознаны…\nПроверте структуру файла!</string>
-    <string name="import_rule">Для импорта списка студентов:\n1. Создайте текстовый файл в формате .csv\nПример:\n=====================\nИмя файла: Группа1.csv\nСодержимое строк файла:\n{id;(если есть)}[Фамилия];[Имя];[Отчество];[e-mail];[тел1];[тел2];[заметка]\n=====================\n2. Поместите файл в директорию SJournal_Data\\import на SD карте.\n3. Выполните импорт.\n*. В формат .csv можно легко импортировать из Excel и др.</string>
+    <string name="import_rule">Формат файла: csv, где каждая строка файла это информация о студенте в формате:\n{id;(если есть)}[Фамилия];[Имя];{[Отчество]};{[e-mail]};{[тел1]};{[тел2]};{[заметка]}\nПример:\n=====================\nИмя файла: Группа1.csv\nСодержимое строк файла:\nПоттер;Гарри;;gp@gmail.com;;;Мальчик который выжил\n=====================\n*. В формат .csv можно легко импортировать из Excel и др.</string>
     <string name="menu_blank_style">Стиль таблицы</string>
     <string name="fragment_blank_style_topic">Заглавие таблицы</string>
     <string name="study_class">Занятие</string>

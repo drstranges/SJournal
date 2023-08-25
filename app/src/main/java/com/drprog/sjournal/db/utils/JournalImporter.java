@@ -1,9 +1,12 @@
 package com.drprog.sjournal.db.utils;
 
+import android.net.Uri;
+
+import com.drprog.sjournal.App;
 import com.drprog.sjournal.db.entity.Student;
 import com.drprog.sjournal.utils.IOFiles;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,19 +23,24 @@ public class JournalImporter {
     public static final int FIELD_PHONE = 6;
     public static final int FIELD_NOTE = 7;
 
-    public static List<Student> importStudentsFromFile(File file, String charsetName) {
+    public static List<Student> importStudentsFromFile(Uri fileUri, String charsetName) {
         List<Student> studentList = new ArrayList<Student>();
-        List<String> stringList = IOFiles.readFileEx(file, charsetName);
-        if (stringList == null || stringList.isEmpty()) return studentList;
+        List<String> stringList = null;
+        try {
+            stringList = IOFiles.readFileEx(App.sInstance, fileUri, charsetName);
+        } catch (IOException e) {
+            return studentList;
+        }
+        if (stringList.isEmpty()) return studentList;
         String[] splitStrings;
         boolean isWithId;
         String numStr;
         for (String string : stringList) {
             string = string.replaceAll("\\p{C}", "");
             splitStrings = string.split(";");
-            if (splitStrings == null || splitStrings.length < 2) {
+            if (splitStrings.length < 2) {
                 splitStrings = string.split(",");
-                if (splitStrings == null || splitStrings.length == 0) continue;
+                if (splitStrings.length == 0) continue;
             }
             int initPos = 0;
             while (splitStrings.length > initPos + 1 && splitStrings[initPos].equals("")) {
@@ -57,11 +65,11 @@ public class JournalImporter {
             if (length > FIELD_EMAIL) { student.setEmail(splitStrings[initPos + FIELD_EMAIL]); }
             if (length > FIELD_MOB_PHONE) {
                 numStr = getNumeric(splitStrings[initPos + FIELD_MOB_PHONE]);
-                if (numStr != null && !numStr.isEmpty()) { student.setMobilePhone(numStr); }
+                if (!numStr.isEmpty()) { student.setMobilePhone(numStr); }
             }
             if (length > FIELD_PHONE) {
                 numStr = getNumeric(splitStrings[initPos + FIELD_PHONE]);
-                if (numStr != null && !numStr.isEmpty()) { student.setPhone(numStr); }
+                if (!numStr.isEmpty()) { student.setPhone(numStr); }
             }
             if (length > FIELD_NOTE) { student.setNote(splitStrings[initPos + FIELD_NOTE]); }
             studentList.add(student);
