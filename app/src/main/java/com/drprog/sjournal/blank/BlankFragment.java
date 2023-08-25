@@ -241,7 +241,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
     private boolean calendarSync() {
         Boolean isSync = PrefsManager.getInstance(getActivity()).getPrefs()
-                                                .getBoolean(PrefsManager.PREFS_CALENDAR_SYNC, true);
+                                                .getBoolean(PrefsManager.PREFS_CALENDAR_SYNC, false);
         if (! isSync) return false;
 
 
