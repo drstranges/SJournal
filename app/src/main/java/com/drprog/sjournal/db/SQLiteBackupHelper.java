@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 
 import com.drprog.sjournal.db.exception.NotValidBackupDbException;
-import com.drprog.sjournal.db.SQLiteJournalHelper;
 import com.drprog.sjournal.db.utils.DataCheck;
 import com.drprog.sjournal.utils.IOFiles;
 

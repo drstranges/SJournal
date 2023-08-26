@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.drprog.sjournal.db.exception.NotValidBackupDbException;
 import com.drprog.sjournal.blank.BlankFragment;
 import com.drprog.sjournal.db.SQLiteBackupHelper;
 import com.drprog.sjournal.db.SQLiteJournalHelper;
+import com.drprog.sjournal.db.exception.NotValidBackupDbException;
 import com.drprog.sjournal.db.prefs.SQLiteProfileHelper;
 import com.drprog.sjournal.dialogs.AboutDialog;
 import com.drprog.sjournal.dialogs.HelpDialog;
