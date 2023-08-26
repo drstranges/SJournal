@@ -154,6 +154,7 @@
                     android:cropToPadding="false"
                     android:minWidth="@dimen/btn_small_min_width"
                     android:scaleType="fitCenter"
+                    android:visibility="gone"
                     android:src="@drawable/ic_copy"/>
             </LinearLayout>
 
@@ -190,6 +191,7 @@
                     android:cropToPadding="false"
                     android:minWidth="@dimen/btn_small_min_width"
                     android:scaleType="fitCenter"
+                    android:visibility="gone"
                     android:src="@drawable/ic_copy"/>
             </LinearLayout>
 
@@ -226,6 +228,7 @@
                     android:cropToPadding="false"
                     android:minWidth="@dimen/btn_small_min_width"
                     android:scaleType="fitCenter"
+                    android:visibility="gone"
                     android:src="@drawable/ic_copy"/>
             </LinearLayout>
 
