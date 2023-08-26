@@ -274,4 +274,7 @@
     <string name="preference_edit_class_on_click_title">Редактировать занятия по клику</string>
     <string name="preference_edit_class_on_click_summary">Редактировать занятия по короткому клику или по длинному нажатию</string>
 
+    <string name="toast_blank_export_blank_not_selected">Сначала выберите журнал.</string>
+    <string name="toast_blank_export_success">Сохранено!</string>
+
 </resources>

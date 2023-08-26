@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-
     <string name="app_name">SJournal</string>
     <string name="menu_settings">Settings</string>
     <string name="symbol_num">No.</string>
@@ -273,5 +270,7 @@
     <string name="preference_edit_class_on_click_title">Edit Class by short click</string>
     <string name="preference_edit_class_on_click_summary">If set allow editing on Click, else - on Long Click</string>
 
+    <string name="toast_blank_export_blank_not_selected">Select blank firstly.</string>
+    <string name="toast_blank_export_success">Saved!</string>
 
 </resources>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.net.Uri;
 import android.widget.LinearLayout;
 
 import com.drprog.sjournal.R;
@@ -28,10 +29,12 @@ import java.util.List;
  */
 public class ExportUtils {
 
-    public static void exportToBitmap(Context ctx, String fileName, LinearLayout data){
+    public static void exportToBitmap(Context ctx, Uri destinationfileUri, LinearLayout data){
         Bitmap bitmap = getBitmapFromView(data);
-        IOFiles ioFiles = new IOFiles(ctx);
-        ioFiles.saveImage(bitmap,IOFiles.DIR_EXPORT_IMG,fileName);
+        Boolean saved = IOFiles.saveImage(ctx, bitmap, destinationfileUri);
+        if (saved) {
+            RunUtils.showToast(ctx, R.string.toast_blank_export_success);
+        }
     }
 
     private static Bitmap getBitmapFromView(LinearLayout view){
@@ -55,7 +58,7 @@ public class ExportUtils {
     }
 
 
-    public static void exportToCSV(Context context, String fileName, Long groupId,
+    public static void exportToCSV(Context context, Uri destinationfileUri, Long groupId,
             Long subjectId, Long classTypeId, boolean isBlankSummary) {
       /*  if (context == null || fileName == null || fileName.isEmpty() || groupId == null
                 || subjectId == null || classTypeId == null) return;

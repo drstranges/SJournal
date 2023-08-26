@@ -276,4 +276,7 @@
     <string name="preference_edit_class_on_click_title">Редагування занять по короткому натисканні</string>
     <string name="preference_edit_class_on_click_summary">Редагувати заняття по короткому чи довгому натисканні</string>
 
+    <string name="toast_blank_export_blank_not_selected">Спочатку виберіть журнал.</string>
+    <string name="toast_blank_export_success">Збережено!</string>
+
 </resources>

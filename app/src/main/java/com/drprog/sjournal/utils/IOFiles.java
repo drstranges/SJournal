@@ -28,7 +28,6 @@ import java.util.Objects;
  */
 public class IOFiles {
     public static final String DIR_BACKUP = "backup";
-    public static final String DIR_EXPORT_IMG = "export/img";
     public static final String FILE_BACKUP_EXT = ".dbk";
     private Context mainContext;
     private static String rootDirName = "SJournal_Data";
@@ -203,20 +202,14 @@ public class IOFiles {
         return searchFile(dir, fileExt);
     }
 
-    public String saveImage(Bitmap finalBitmap, String dirName, String fileName) {
-        fileName += ".png";
-        File exportDir = getExternalPath(dirName);
-        exportDir.mkdirs();
-        File file = new File (exportDir, fileName);
-        if (file.exists()) file.delete();
-        try {
-            FileOutputStream out = new FileOutputStream(file);
+    public static Boolean saveImage(Context context, Bitmap finalBitmap, Uri exportFileUri) {
+        try (OutputStream out = context.getContentResolver().openOutputStream(exportFileUri)) {
             finalBitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             out.flush();
-            out.close();
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
-        return file.getAbsolutePath();
+        return true;
     }
 }

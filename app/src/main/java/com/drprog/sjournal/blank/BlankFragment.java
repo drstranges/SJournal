@@ -1,5 +1,6 @@
 package com.drprog.sjournal.blank;
 
+import android.app.Activity;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -8,10 +9,12 @@ import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -93,12 +96,15 @@ public class BlankFragment extends Fragment implements DialogClickListener,
     private static final String KEY_LAST_GST_HANDLER_TITLE = "KEY_LAST_GST_HANDLER_TITLE";
     public static final int REQUEST_CODE_CHECK_CALENDAR_PERMISSION = 3001;
 
-    private static enum ExportKey{NO_EXPORT, EXPORT_IMG, EXPORT_CSV}
+    private static enum ExportKey {NO_EXPORT, EXPORT_IMG, EXPORT_CSV}
+    private static final int REQUEST_CODE_PICK_EXPORT_LOCATION = 302;
 
     private ProgressBar progressBar;
     private LinearLayout topChoiceBar;
     private int topChoiceBarVisibility = View.VISIBLE;
     private ExportKey exportKey = ExportKey.NO_EXPORT;
+
+    private Uri exportFileUri;
 
     private SQLiteJournalHelper dbHelper;
     private Long selectedGroupId;
@@ -492,7 +498,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
             showBlankStyleFragment();
         } else if (itemId == R.id.menu_export_img) {
             if (!RunUtils.showMessageIfFree(getFragmentManager())) {
-                doExportImg(ExportKey.EXPORT_IMG);
+                doExportImg();
             }
         } else {
             return super.onOptionsItemSelected(item);
@@ -986,7 +992,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         progressBar.setVisibility(View.GONE);
         LinearLayout blankLayout = clearBlank();
         if (blankLayout != null && data != null) {
-            exportBlank(exportKey, data);
+            exportBlank(exportKey, exportFileUri, data);
             ViewGroup parent = (ViewGroup) data.getParent();
             if (parent != null) parent.removeView(data);
             blankLayout.addView(data);
@@ -1020,16 +1026,12 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
     }
 
-    private void doExportImg(ExportKey exportKey) {
-        this.exportKey = exportKey;
-        refreshBlank(true,true);
-    }
-
-    private void exportBlank(ExportKey exportKey, LinearLayout data) {
-        if (exportKey == ExportKey.NO_EXPORT) return;
-
-        if (data == null || selectedGroupId == null || selectedSubjectId == null ||
-                (selectedClassTypeId == null && !isBlankSummary)) { return; }
+    private void doExportImg() {
+        if (selectedGroupId == null || selectedSubjectId == null ||
+                (selectedClassTypeId == null && !isBlankSummary)) {
+            RunUtils.showToast(getContext(), R.string.toast_blank_export_blank_not_selected);
+            return;
+        }
 
         String fileName = "";
         dbHelper = SQLiteJournalHelper.getInstance(getActivity(),true);
@@ -1048,23 +1050,49 @@ public class BlankFragment extends Fragment implements DialogClickListener,
             }
         }
         if(fileName.isEmpty()) return;
+        pickLocationToSaveFile(fileName);
+    }
 
+    private void pickLocationToSaveFile(String filename) {
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/png");
+        intent.putExtra(Intent.EXTRA_TITLE, filename);
+
+        startActivityForResult(intent, REQUEST_CODE_PICK_EXPORT_LOCATION);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PICK_EXPORT_LOCATION && resultCode == Activity.RESULT_OK) {
+            exportFileUri = data.getData();
+            if (exportFileUri != null) {
+                exportKey = ExportKey.EXPORT_IMG;
+                refreshBlank(true, true);
+            } else {
+                exportKey = ExportKey.NO_EXPORT;
+            }
+        }
+    }
+
+    private void exportBlank(ExportKey exportKey, Uri exportFileUri, LinearLayout data) {
+        if (data == null || exportFileUri == null || selectedGroupId == null || selectedSubjectId == null ||
+                (selectedClassTypeId == null && !isBlankSummary)) {
+            return;
+        }
 
         switch (exportKey){
             case NO_EXPORT:
                 break;
             case EXPORT_IMG:
-//                Bitmap bitmap = RunUtils.getBitmapFromView(data);
-//                IOFiles ioFiles = new IOFiles(getActivity());
-//                ioFiles.saveImage(bitmap,IOFiles.DIR_EXPORT_IMG,fileName);
-                ExportUtils.exportToBitmap(getActivity(),fileName,data);
+                ExportUtils.exportToBitmap(getActivity(), exportFileUri, data);
 
                 this.exportKey = ExportKey.NO_EXPORT;
                 break;
             case EXPORT_CSV:
-                ExportUtils.exportToCSV(getActivity(),fileName,selectedGroupId,
-                                        selectedSubjectId,
-                                        selectedClassTypeId, isBlankSummary);
+                ExportUtils.exportToCSV(getActivity(), exportFileUri, selectedGroupId,
+                        selectedSubjectId,
+                        selectedClassTypeId, isBlankSummary);
                 break;
         }
     }
