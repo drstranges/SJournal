@@ -2,6 +2,7 @@ package com.drprog.sjournal.dialogs;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -72,7 +73,11 @@ public class AboutDialog extends DialogFragment {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.GITHUB_URL));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -83,7 +88,11 @@ public class AboutDialog extends DialogFragment {
                         "mailto",getString(R.string.app_dev_email), null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "SJournal");
                 emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                } catch (ActivityNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
         return v;

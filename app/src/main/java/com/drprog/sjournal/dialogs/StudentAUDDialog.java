@@ -2,6 +2,7 @@ package com.drprog.sjournal.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -430,27 +431,25 @@ public class StudentAUDDialog extends BaseAUDDialog {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", viewEMail.getText().toString(), null));
                 //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "EXTRA_SUBJECT");
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                } catch (ActivityNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
         btnPhone1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-                smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", viewPhoneMob.getText().toString());
-                //smsIntent.putExtra("sms_body","Body of Message");
-                startActivity(smsIntent);
+                String phone = viewPhoneMob.getText().toString();
+                makeCall(phone);
             }
         });
         btnPhone2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-                smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", viewPhoneHome.getText().toString());
-                //smsIntent.putExtra("sms_body","Body of Message");
-                startActivity(smsIntent);
+                String phone = viewPhoneHome.getText().toString();
+                makeCall(phone);
             }
         });
         //SwitchIdSet
@@ -502,6 +501,16 @@ public class StudentAUDDialog extends BaseAUDDialog {
         });
 
         return v;
+    }
+
+    private void makeCall(String phone) {
+        if (phone.isEmpty()) return;
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+        try {
+            startActivity(Intent.createChooser(intent, "Call..."));
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean fillForm() {
