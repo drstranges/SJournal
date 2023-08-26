@@ -117,29 +117,24 @@ public class BlankFragment extends Fragment implements DialogClickListener,
             Object o = v.getTag();
             if (o == null || !(o instanceof BlankTagHandler)) return;
             BlankTagHandler tagHandler = (BlankTagHandler) o;
-            switch (tagHandler.getCeilType()) {
+            BlankTagHandler.CeilType ceilType = tagHandler.getCeilType();
+            switch (ceilType) {
                 case NONE:
                     break;
                 case CLASS:
                     showClassUpdateDialogIfPrefs(tagHandler.getClassId());
-//                    boolean iPref = PrefsManager.getInstance(getActivity()).getPrefs()
-//                            .getString(PrefsManager.PREFS_BLANK_SYMBOL_FORMAT,
-//                                       "0"));
-//                    showClassAUDDialog(BaseAUDDialog.DIALOG_UPDATE, tagHandler.getClassId(), null,
-//                                       null,
-//                                       null);
                     break;
                 case SUM_ENTRY:
-                    break;
                 case STUDENT:
+                    RunUtils.showShortToastWithDebounce(getActivity(), R.string.toast_use_long_click_to_edit);
                     break;
                 case NO_MARK:
-                    break;
                 case MARK:
-                    break;
                 case SYMBOL:
-                    break;
                 case ABSENT:
+                    if (!isBlankSummary) {
+                        RunUtils.showShortToastWithDebounce(getActivity(), R.string.toast_use_long_click_to_edit);
+                    }
                     break;
                 case ADD_COL_CEIL:
                     showClassAUDDialog(BaseAUDDialog.DIALOG_ADD, null, selectedSubjectId,
@@ -1030,7 +1025,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
     private void doExportImg() {
         if (selectedGroupId == null || selectedSubjectId == null ||
                 (selectedClassTypeId == null && !isBlankSummary)) {
-            RunUtils.showToast(getContext(), R.string.toast_blank_not_selected);
+            RunUtils.showToast(getActivity(), R.string.toast_blank_not_selected);
             return;
         }
 

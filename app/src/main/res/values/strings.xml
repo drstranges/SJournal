@@ -274,5 +274,6 @@
     <string name="toast_db_restored_successfully">Database restored successfully!</string>
     <string name="toast_db_restore_error">Error! Can\'t restore database from selected file!</string>
     <string name="close">Close</string>
+    <string name="toast_use_long_click_to_edit">Use Long Click to edit</string>
 
 </resources>

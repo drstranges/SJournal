@@ -280,5 +280,6 @@
     <string name="toast_db_restored_successfully">Базу даних відновлено!</string>
     <string name="toast_db_restore_error">Помилка! Неможливо відновити базу даних із вибраного файлу!</string>
     <string name="close">Закрити</string>
+    <string name="toast_use_long_click_to_edit">Довге натискання для редагування</string>
 
 </resources>

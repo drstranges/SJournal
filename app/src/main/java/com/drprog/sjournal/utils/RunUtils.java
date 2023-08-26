@@ -22,12 +22,14 @@ import android.widget.Toast;
 import com.drprog.sjournal.dialogs.VersionRestrictionDialog;
 import com.drprog.sjournal.BuildConfig;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Romka on 20.07.2014.
  */
 public class RunUtils {
 
-
+    private static long nextDebouncedToastTime = 0;
 
     public static boolean checkIntegerMaxNum(Integer num){
         if (num == null) return true;
@@ -167,6 +169,18 @@ public class RunUtils {
     }
     public static void showToast(Context ctx, int resMessage) {
         showToast(ctx,resMessage,Toast.LENGTH_LONG);
+    }
+    public static void showShortToastWithDebounce(Context ctx, int resMessage) {
+        long now = System.currentTimeMillis();
+        if (now > nextDebouncedToastTime) {
+            if (nextDebouncedToastTime == 0) {
+                // Show 2 times until debounce
+                nextDebouncedToastTime++;
+            } else {
+                nextDebouncedToastTime = now + TimeUnit.HOURS.toMillis(1);
+            }
+            showToast(ctx,resMessage,Toast.LENGTH_SHORT);
+        }
     }
 
     public static void showToast(Context ctx, String message, int duration) {
