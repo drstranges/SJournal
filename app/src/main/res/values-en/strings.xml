@@ -140,16 +140,12 @@
     <string name="menu_database">Database</string>
     <string name="menu_database_export">Backup</string>
     <string name="menu_database_restore">Restore</string>
-    <string name="dialog_database_backup_title">Enter the file name</string>
-    <string name="dialog_database_backup_edit_hint">File name…</string>
     <string name="db_save_ok">Database saved successful</string>
     <string name="error_ext_storage_not_writable">Error!\nExternal Storage not found!</string>
     <string name="dialog_database_restore_title">Restoring a saved copy of the database</string>
     <string name="dialog_database_backup_list_empty">Backup files not found…</string>
 
-    <string name="dialog_import_students_file_list_empty">In the directory \"import\" files *.csv not found</string>
     <string name="menu_import">Import from File</string>
-    <string name="dialog_import_check">Check</string>
     <string name="do_import">Import</string>
     <string name="error_iofile">Error file system access!\nProbably is no external drive (External SD)</string>
     <string name="dialog_import_students_title">Importing a list of students…</string>
