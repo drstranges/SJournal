@@ -100,7 +100,7 @@ public class StudentImportListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private class TagHandler {
+    private static class TagHandler {
         TextView viewStudentIdCaption;
         TextView viewStudentId;
         TextView viewLastName;

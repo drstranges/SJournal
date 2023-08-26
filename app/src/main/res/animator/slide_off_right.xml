@@ -10,8 +10,7 @@
         android:valueTo="0"
         android:duration="500"/>
 
-    <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    <objectAnimator android:interpolator="@android:anim/accelerate_decelerate_interpolator"
                     android:propertyName="x"
                     android:valueType="floatType"
                     android:valueTo="300"

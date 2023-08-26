@@ -275,7 +275,7 @@ public class ImportDialog extends BaseDialogFragment {
         }
     }
 
-    public class ImportFile {
+    public static class ImportFile {
         public Uri file;
         public String charsetName = "UTF-8";
 

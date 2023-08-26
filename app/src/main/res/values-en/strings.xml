@@ -143,8 +143,9 @@
     <string name="db_save_ok">Database saved successful</string>
     <string name="error_ext_storage_not_writable">Error!\nExternal Storage not found!</string>
     <string name="dialog_database_restore_title">Restoring a saved copy of the database</string>
+    <string name="dialog_database_restore_message">You are going to restore DB from file. Your current data will be lost and replaced by selected DB file! Continue?</string>
     <string name="dialog_database_backup_list_empty">Backup files not found…</string>
-
+    <string name="dialog_import_students_pick_file_button">Click to pick a file"</string>
     <string name="menu_import">Import from File</string>
     <string name="do_import">Import</string>
     <string name="error_iofile">Error file system access!\nProbably is no external drive (External SD)</string>

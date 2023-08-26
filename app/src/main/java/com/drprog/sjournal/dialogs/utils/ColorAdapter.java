@@ -112,7 +112,7 @@ public class ColorAdapter extends ArrayAdapter {
         return convertView;
     }
 
-    protected class ViewHolder {
+    protected static class ViewHolder {
         TextView textView;
     }
 }

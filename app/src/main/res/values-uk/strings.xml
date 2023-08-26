@@ -146,7 +146,6 @@
     <string name="dialog_database_restore_title">Увага!</string>
     <string name="dialog_database_restore_message">Ви збираєтесь відновити базу даних із збереженого раніше файлу. При цьому усі поточні дані будуть видалені і замінені даними із вибраного файлу. Продовжити?</string>
     <string name="dialog_database_backup_list_empty">Збережені копії не знайдені…</string>
-
     <string name="dialog_import_students_pick_file_button">Натисніть тут для вибору файлу</string>
     <string name="menu_import">Імпорт з файлу</string>
     <string name="do_import">Імпортувати</string>

@@ -39,7 +39,7 @@ public class RunUtils {
 
     public static Integer tryParse(String text) {
         try {
-            return new Integer(text);
+            return Integer.parseInt(text);
         } catch (NumberFormatException e) {
             return null;
         }

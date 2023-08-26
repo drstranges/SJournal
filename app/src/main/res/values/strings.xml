@@ -142,7 +142,6 @@
     <string name="dialog_database_restore_title">Caution!</string>
     <string name="dialog_database_restore_message">You are going to restore DB from file. Your current data will be lost and replaced by selected DB file! Continue?</string>
     <string name="dialog_database_backup_list_empty">Backup files not found…</string>
-
     <string name="dialog_import_students_pick_file_button">Click to pick a file"</string>
     <string name="menu_import">Import from File</string>
     <string name="do_import">Import</string>

@@ -23,11 +23,11 @@ import java.util.Objects;
  * Created by Romka on 10.08.2014.
  */
 public class IOFiles {
-    public static final String FILE_BACKUP_EXT = ".dbk";
-
     public static void copyFile(File src, File dst) throws IOException {
-        try (FileChannel inChannel = new FileInputStream(src).getChannel();
-             FileChannel outChannel = new FileOutputStream(dst).getChannel()) {
+        try (FileInputStream in = new FileInputStream(src);
+             FileOutputStream out = new FileOutputStream(dst)) {
+            FileChannel inChannel = in.getChannel();
+            FileChannel outChannel = out.getChannel();
             inChannel.transferTo(0, inChannel.size(), outChannel);
         }
     }
