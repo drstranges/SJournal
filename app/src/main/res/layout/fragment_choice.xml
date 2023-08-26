@@ -7,7 +7,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@id/android:list"
+        android:id="@+id/list"
         android:cacheColorHint="@android:color/transparent"
         android:divider="#ff457eff"
         android:dividerHeight="@dimen/list_divider_height">
@@ -15,7 +15,7 @@
     </ListView>
 
     <TextView
-        android:id="@id/android:empty"
+        android:id="@+id/empty"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"

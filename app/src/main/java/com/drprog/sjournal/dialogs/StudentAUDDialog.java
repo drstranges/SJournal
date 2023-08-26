@@ -528,7 +528,9 @@ public class StudentAUDDialog extends BaseAUDDialog {
 
     private View getStudentChoiceDialog(LayoutInflater inflater, ViewGroup container) {
         View rootView = inflater.inflate(R.layout.fragment_choice, container);
-        ListView listView = (ListView) rootView.findViewById(android.R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
+        View emptyView = rootView.findViewById(R.id.empty);
+        listView.setEmptyView(emptyView);
         SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<Student> studentList = dbHelper.students.getAll(TableStudents.KEY_NAME_LAST);
         ArrayAdapter<Student> adapter =
