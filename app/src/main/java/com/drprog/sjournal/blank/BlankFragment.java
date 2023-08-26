@@ -639,6 +639,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         getFragmentManager()
                 .popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         if (selectedGroupId == null || selectedSubjectId == null || selectedClassTypeId == null) {
+            RunUtils.showToast(getActivity(), R.string.toast_blank_not_selected);
             return;
         }
         AddClassWithAbsentDialog
@@ -1029,7 +1030,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
     private void doExportImg() {
         if (selectedGroupId == null || selectedSubjectId == null ||
                 (selectedClassTypeId == null && !isBlankSummary)) {
-            RunUtils.showToast(getContext(), R.string.toast_blank_export_blank_not_selected);
+            RunUtils.showToast(getContext(), R.string.toast_blank_not_selected);
             return;
         }
 
