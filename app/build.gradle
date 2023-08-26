@@ -16,8 +16,8 @@ android {
         applicationId "com.drprog.sjournal"
         minSdk 21
         targetSdk 34
-        versionCode 27
-        versionName "0.10.1"
+        versionCode 28
+        versionName "0.10.2"
     }
 
     signingConfigs {
