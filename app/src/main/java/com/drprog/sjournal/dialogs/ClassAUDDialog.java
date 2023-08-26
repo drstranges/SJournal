@@ -133,10 +133,6 @@ public class ClassAUDDialog extends BaseAUDDialog implements DatePickerDialog.On
                     dismiss();
                     return;
                 }
-                if (!checkEntry(viewAbbr, abbr, null, null)) {
-                    viewAbbr.setError(getActivity().getResources().getString(R.string.error));
-                    return;
-                }
                 SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 int semester = dbHelper.groups.get(argGroupId).getSemester();
                 String date = TableClasses.dateFormat.format(calendar.getTime());
