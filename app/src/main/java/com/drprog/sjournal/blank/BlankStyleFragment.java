@@ -277,7 +277,10 @@ public class BlankStyleFragment extends Fragment implements DialogClickListener 
                 }
                 if (res > 0) {
                     RunUtils.showToast(getActivity(), R.string.dialog_profile_save_success);
+                    DimensionsContainer.setCurrentProfile(getActivity(), profileName);
+                    dimensionsContainer.loadCurrentDimensionProfile();
                     initCurrentProfileSpinner();
+                    refresh();
                 }
             }
         };
@@ -324,7 +327,6 @@ public class BlankStyleFragment extends Fragment implements DialogClickListener 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProfiles.setAdapter(adapter);
         spinnerProfiles.setSelection(profileList.indexOf(currentProfile));
-
     }
 
     private void showDimensionSetDialog(Integer key) {
