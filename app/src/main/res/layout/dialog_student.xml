@@ -97,6 +97,9 @@
                     android:gravity="center_horizontal"
                     android:inputType="text|textCapWords|textPersonName"
                     android:hint="@string/name_middle_hint"
+                    android:nextFocusForward="@id/buttonGroupsChoice"
+                    android:nextFocusDown="@id/buttonGroupsChoice"
+                    android:nextFocusRight="@id/buttonGroupsChoice"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                 <TextView
@@ -130,6 +133,11 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:nextFocusForward="@id/editEMail"
+                        android:nextFocusDown="@id/editEMail"
+                        android:nextFocusRight="@id/editEMail"
                         android:text="@string/get_choice"/>
                 </LinearLayout>
 
@@ -161,7 +169,7 @@
                         android:autoLink="email"
                         android:ems="10"
                         android:gravity="center_horizontal"
-                        android:imeOptions="actionSend"
+                        android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:linksClickable="true"
                         android:hint="@string/e_mail_hint"
@@ -269,7 +277,13 @@
                     android:ems="10"
                     android:gravity="fill_horizontal"
                     android:hint="@string/note_hint"
-                    android:inputType="textShortMessage|textMultiLine|textCapSentences"
+                    android:inputType="textShortMessage|textCapSentences"
+                    android:imeOptions="actionNext"
+                    android:nextFocusForward="@id/button_ok"
+                    android:nextFocusDown="@id/button_ok"
+                    android:nextFocusRight="@id/button_ok"
+                    android:nextFocusLeft="@id/editLastName"
+                    android:nextFocusUp="@id/editLastName"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             </LinearLayout>
@@ -288,6 +302,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusRight="@id/button_ok"
                 android:text="@android:string/cancel"/>
 
             <Button
@@ -296,6 +313,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusForward="@id/button_cancel"
+                android:nextFocusLeft="@id/button_cancel"
+                android:nextFocusUp="@id/editLastName"
                 android:text="@android:string/ok"/>
 
         </LinearLayout>
