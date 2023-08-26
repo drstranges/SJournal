@@ -1,6 +1,8 @@
 package com.drprog.sjournal.dialogs;
 
 import android.app.DialogFragment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.drprog.sjournal.R;
+
+import java.io.InputStream;
 
 /**
  * Created by Romka on 23.08.2014.
@@ -50,7 +54,9 @@ public class HelpDialog extends DialogFragment {
         switch (argHelpId){
             default:
             case GENERAL:
-                imageView.setImageResource(R.drawable.img_help_general);
+                InputStream imageStream = getResources().openRawResource(R.raw.img_help_general);
+                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
+                imageView.setImageBitmap(bitmap);
                 break;
             case IMPORT_LIST_OF_STUDENTS:
                 break;
