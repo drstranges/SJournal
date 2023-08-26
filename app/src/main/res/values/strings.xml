@@ -273,5 +273,6 @@
     <string name="toast_blank_export_success">Saved!</string>
     <string name="toast_db_restored_successfully">Database restored successfully!</string>
     <string name="toast_db_restore_error">Error! Can\'t restore database from selected file!</string>
+    <string name="close">Close</string>
 
 </resources>

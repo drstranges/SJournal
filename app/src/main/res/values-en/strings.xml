@@ -269,6 +269,7 @@
     <string name="result_avg">Avg</string>
     <string name="preference_edit_class_on_click_summary">If set allow editing on Click, else - on Long Click</string>
     <string name="preference_edit_class_on_click_title">Edit Class by short click</string>
+    <string name="close">Close</string>
 
 
 </resources>

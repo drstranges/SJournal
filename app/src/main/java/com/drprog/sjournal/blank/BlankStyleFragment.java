@@ -1,7 +1,10 @@
 package com.drprog.sjournal.blank;
 
+import static com.drprog.sjournal.blank.BlankFragment.KEY_FRAGMENT_BLANK_STYLE;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -135,6 +138,9 @@ public class BlankStyleFragment extends Fragment implements DialogClickListener 
         buttonDelete = (Button) v.findViewById(R.id.button_delete);
         //buttonLoad = (Button) v.findViewById(R.id.button_load);
         spinnerProfiles = (Spinner) v.findViewById(R.id.spinner3);
+        v.findViewById(R.id.button_close).setOnClickListener(v1 -> getFragmentManager()
+                .popBackStackImmediate(KEY_FRAGMENT_BLANK_STYLE,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE));
         return v;
     }
 

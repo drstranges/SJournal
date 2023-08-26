@@ -204,6 +204,13 @@
                 style="@style/ChoiceButtonBarButton"
                 android:text="@string/delete_profile"/>
 
+            <Button
+                android:id="@+id/button_close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ChoiceButtonBarButton"
+                android:text="@string/close"/>
+
             <!--<Button-->
                 <!--android:id="@+id/button_load"-->
                 <!--android:layout_width="match_parent"-->

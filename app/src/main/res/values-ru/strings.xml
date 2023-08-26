@@ -277,5 +277,6 @@
     <string name="toast_blank_export_success">Сохранено!</string>
     <string name="toast_db_restored_successfully">База данных восстановлена!</string>
     <string name="toast_db_restore_error">Ошибка! Невозможно востановить базу данных из выбранного файла!</string>
+    <string name="close">Закрыть</string>
 
 </resources>
