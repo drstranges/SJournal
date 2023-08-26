@@ -16,7 +16,7 @@ android {
         applicationId "com.drprog.sjournal"
         minSdk 21
         targetSdk 34
-        versionCode 29
+        versionCode 30
         versionName "0.10.3"
     }
 
