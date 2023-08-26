@@ -47,25 +47,19 @@ public class VersionRestrictionDialog extends DialogFragment {
 //        TextView message = (TextView) v.findViewById(R.id.textView2);
         title.setText(Html.fromHtml(getString(R.string.dialog_about_message_title,BuildConfig.VERSION_NAME,
                                               BuildConfig.IS_VERSION_FREE ? "FREE" : "PRO")));
-        ImageButton buttonAppStore = (ImageButton) v.findViewById(R.id.button1);
+        View buttonAppStore = v.findViewById(R.id.button1);
         Button buttonForum = (Button) v.findViewById(R.id.button2);
         ImageButton buttonEmailMe = (ImageButton) v.findViewById(R.id.button3);
         buttonAppStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String appPackageName = getActivity().getPackageName();
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri
-                         .parse("market://details?id=" + appPackageName));
+                         .parse(BuildConfig.URI_MARKET_URL));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } catch (android.content.ActivityNotFoundException e) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri
-                            //.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                            .parse("https://play.google.com/store/apps/developer?id=d_romka"));
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
+                    e.printStackTrace();
                 }
 
             }
@@ -74,8 +68,7 @@ public class VersionRestrictionDialog extends DialogFragment {
         buttonForum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("http://4pda.ru/forum/index.php?showtopic=388376"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.GITHUB_URL));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -86,7 +79,7 @@ public class VersionRestrictionDialog extends DialogFragment {
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto",getString(R.string.app_dev_email), null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "EXTRA_SUBJECT");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "SJournal");
                 emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }

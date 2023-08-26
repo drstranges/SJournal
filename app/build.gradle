@@ -54,12 +54,14 @@ android {
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'false'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal.full\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal.full\""
+            buildConfigField 'String', 'GITHUB_URL', "\"https://github.com/drstranges/SJournal\""
         }
         free {
             dimension "version"
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'true'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal\""
+            buildConfigField 'String', 'GITHUB_URL', "\"https://github.com/drstranges/SJournal\""
         }
 //
 //        pro_slideme {

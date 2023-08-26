@@ -4,76 +4,71 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_launcher"/>
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_toRightOf="@+id/imageView"
-            android:gravity="center"
-            android:text="@string/dialog_about_message_title"
-            />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dialog_about_message_title" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
+            android:layout_marginBottom="@dimen/view_to_view_vertical_margin"
             android:gravity="center"
             android:text="@string/dialog_about_message"
-            android:layout_marginBottom="@dimen/view_to_view_vertical_margin"
-            android:textIsSelectable="true"/>
+            android:textIsSelectable="true" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button1"
-            android:src="@drawable/ic_market"
-            android:contentDescription="@string/dialog_about_go_to_google_app_store"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView2"
-            />
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dialog_about_go_to_forum"
-            android:id="@+id/button2"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/button1"
-            android:layout_toLeftOf="@+id/button3"
-            android:layout_alignTop="@+id/button1"
-            android:layout_alignBottom="@+id/button1"/>
+            <ImageView
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/dialog_about_go_to_google_app_store"
+                android:scaleType="centerInside"
+                android:src="@raw/google_play_badge" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button3"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:src="@android:drawable/ic_dialog_email"
-            android:layout_alignTop="@+id/button1"
-            android:layout_alignBottom="@+id/button1"
-            android:contentDescription="@string/dialog_about_send_email"/>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/dialog_about_go_to_forum" />
 
+            <ImageButton
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/dialog_about_send_email"
+                android:src="@android:drawable/ic_dialog_email" />
+        </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

@@ -243,8 +243,8 @@
         <b>Academic Journal</b>
         ]]>
         </string>
-    <string name="dialog_about_go_to_forum">Go to Forum</string>
-    <string name="dialog_about_go_to_google_app_store">App Store</string>
+    <string name="dialog_about_go_to_forum">GitHub</string>
+    <string name="dialog_about_go_to_google_app_store">Google Play</string>
     <string name="dialog_about_send_email">Send e-mail</string>
 
     <string name="menu_help">Help</string>

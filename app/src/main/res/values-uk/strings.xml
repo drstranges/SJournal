@@ -242,8 +242,8 @@
     <string name="symbol_place_in_ceil_inc_width">Вмістити в клітинку (збільшити розмір колонки) (не реалізовано)</string>
     <string name="menu_blank_add_class_absents_select">Нове заняття</string>
     <string name="menu_about">Про програму</string>
-    <string name="dialog_about_go_to_forum">Обсудить на форуме</string>
-    <string name="dialog_about_go_to_google_app_store">App Store</string>
+    <string name="dialog_about_go_to_forum">GitHub</string>
+    <string name="dialog_about_go_to_google_app_store">Google Play</string>
     <string name="dialog_about_send_email">Send e-mail</string>
     <string name="menu_help">Допомога</string>
     <string name="send_email">Send</string>
@@ -254,7 +254,7 @@
 
     <string name="dialog_about_message">Цей додаток розроблений викладачем ВНЗ і для викладачів ВНЗ.\n\n
         Із задоволенням приймаю конструктивну критику, зауваження та пропозиції!\n\n
-        Написання даного додатку у автора заняло всю його выдпустку, у звязку з чим він виражає свою щиру подяку дружині за розуміння і підтримку.</string>
+        Написання застосунку у автора заняло всю його відпустку, у звязку з чим він висловлює свою щиру подяку дружині за розуміння і підтримку.</string>
     <string name="dialog_about_message_title">
         <![CDATA[<b>SJournal v%1$s (<i>by d_romka</i>)</b> - %2$s<br/>
         <b>Журал викладача</b>

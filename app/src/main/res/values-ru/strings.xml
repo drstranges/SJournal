@@ -240,8 +240,8 @@
     <string name="symbol_place_in_ceil_inc_width">Вместить в ячейку (увеличить размер ячейки)(не реализовано)</string>
     <string name="menu_blank_add_class_absents_select">Новое занятие</string>
     <string name="menu_about">О программе</string>
-    <string name="dialog_about_go_to_forum">Обсудить на форуме</string>
-    <string name="dialog_about_go_to_google_app_store">App Store</string>
+    <string name="dialog_about_go_to_forum">GitHub</string>
+    <string name="dialog_about_go_to_google_app_store">Google Play</string>
     <string name="dialog_about_send_email">Send e-mail</string>
     <string name="menu_help">Помощь</string>
     <string name="send_email">Send</string>
