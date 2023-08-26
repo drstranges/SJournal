@@ -150,14 +150,6 @@ public class AddClassWithAbsentDialog extends BaseDialogFragment {
                     dismiss();
                     return;
                 }
-                if ((abbr == null) || (abbr.isEmpty())) {
-                    showNotify(editText, R.string.error_entry_not_specify);
-                    return;
-                }
-                if (abbr.charAt(0) == ' ') {
-                    showNotify(editText, R.string.error_entry_start_with_space);
-                    return;
-                }
                 SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 int semester = dbHelper.groups.get(argGroupId).getSemester();
                 String date = TableClasses.dateFormat.format(Calendar.getInstance().getTime());
