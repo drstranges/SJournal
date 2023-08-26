@@ -251,7 +251,8 @@
 
     <string name="menu_help">Help</string>
     <string name="send_email">Send</string>
-    <string name="send_message">SMS</string>
+    <string name="copy_into_clipboard">Copy</string>
+    <string name="toast_copied_to_clipboard">Copied!</string>
     <string name="menu_export">Export</string>
     <string name="menu_export_img">To Image</string>
 

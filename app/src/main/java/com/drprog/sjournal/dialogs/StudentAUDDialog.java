@@ -1,11 +1,16 @@
 package com.drprog.sjournal.dialogs;
 
+import static android.content.Context.CLIPBOARD_SERVICE;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.drprog.sjournal.db.SQLiteJournalHelper;
 import com.drprog.sjournal.db.TableGroups;
@@ -28,6 +34,7 @@ import com.drprog.sjournal.db.entity.StudyGroup;
 import com.drprog.sjournal.dialogs.utils.BaseAUDDialog;
 import com.drprog.sjournal.preferences.PrefsManager;
 import com.drprog.sjournal.R;
+import com.drprog.sjournal.utils.RunUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -428,28 +435,22 @@ public class StudentAUDDialog extends BaseAUDDialog {
         btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", viewEMail.getText().toString(), null));
-                //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "EXTRA_SUBJECT");
-                try {
-                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
-                } catch (ActivityNotFoundException e) {
-                    e.printStackTrace();
-                }
+                String email = viewEMail.getText().toString();
+                copyToClipboard(email);
             }
         });
         btnPhone1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phone = viewPhoneMob.getText().toString();
-                makeCall(phone);
+                copyToClipboard(phone);
             }
         });
         btnPhone2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phone = viewPhoneHome.getText().toString();
-                makeCall(phone);
+                copyToClipboard(phone);
             }
         });
         //SwitchIdSet
@@ -503,13 +504,13 @@ public class StudentAUDDialog extends BaseAUDDialog {
         return v;
     }
 
-    private void makeCall(String phone) {
-        if (phone.isEmpty()) return;
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
-        try {
-            startActivity(Intent.createChooser(intent, "Call..."));
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
+    private void copyToClipboard(String text) {
+        if (text == null || text.isEmpty()) return;
+        ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(null, text);
+        clipboard.setPrimaryClip(clip);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+            Toast.makeText(getActivity(), R.string.toast_copied_to_clipboard, Toast.LENGTH_SHORT).show();
         }
     }
 

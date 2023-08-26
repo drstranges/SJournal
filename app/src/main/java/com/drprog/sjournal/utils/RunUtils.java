@@ -162,10 +162,7 @@ public class RunUtils {
     }
 
     public static void showToast(Context ctx, int resMessage, int duration) {
-        Toast toast;
-        toast = Toast.makeText(ctx, resMessage, duration);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
+        Toast.makeText(ctx, resMessage, duration).show();
     }
     public static void showToast(Context ctx, int resMessage) {
         showToast(ctx,resMessage,Toast.LENGTH_LONG);

@@ -246,7 +246,8 @@
     <string name="dialog_about_send_email">Send e-mail</string>
     <string name="menu_help">Допомога</string>
     <string name="send_email">Send</string>
-    <string name="send_message">SMS</string>
+    <string name="copy_into_clipboard">Скопіювати</string>
+    <string name="toast_copied_to_clipboard">Скопійовано!</string>
     <string name="menu_export">Експорт</string>
     <string name="menu_export_img">Зображення (.png)</string>
     <string name="dialog_version_restriction_message">Не доступно в безкоштовній версії!</string>
