@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle(null);
         BlankFragment blankFragment =
                 (BlankFragment) getFragmentManager().findFragmentByTag(BlankFragment.TAG);
         if (blankFragment == null) {
