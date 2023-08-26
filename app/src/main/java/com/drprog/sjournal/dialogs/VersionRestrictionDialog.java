@@ -56,7 +56,7 @@ public class VersionRestrictionDialog extends DialogFragment {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri
-                         .parse(BuildConfig.URI_MARKET_URL));
+                         .parse(BuildConfig.URI_MARKET_URL_FULL));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } catch (android.content.ActivityNotFoundException e) {
