@@ -472,7 +472,9 @@ public class Blank {
                 TextView classView = new TextView(mainContext);
                 switch (iPref) {
                     case 0:
-                        str = studyClass.getAbbr() + "\n" + formatDate(studyClass.getDate());
+                        str = studyClass.getAbbr();
+                        if (!str.isEmpty()) str += "\n";
+                        str += formatDate(studyClass.getDate());
                         break;
                     case 1:
                         str = studyClass.getAbbr();

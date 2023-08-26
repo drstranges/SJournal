@@ -101,7 +101,7 @@
 
     <string name="menu_student">Students</string>
     <string name="dialog_student_select_title">Choice a Student…</string>
-    <string name="theme_abbr">Short title</string>
+    <string name="theme_abbr">Title</string>
     <string name="theme_abbr_hint">Enter the short title of class</string>
     <string name="theme">Theme</string>
     <string name="theme_hint">Enter the topic name</string>

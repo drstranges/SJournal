@@ -92,8 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/theme_abbr"
-                    android:textStyle="bold"/>
+                    android:text="@string/theme_abbr"/>
 
                 <EditText
                     android:layout_width="0dp"

@@ -103,7 +103,7 @@
 
     <string name="menu_student">Студенти</string>
     <string name="dialog_student_select_title">Вибір студента…</string>
-    <string name="theme_abbr">Скорочення</string>
+    <string name="theme_abbr">Назва</string>
     <string name="theme_abbr_hint">Введіть скороченну назву теми заняття</string>
     <string name="theme">Тема</string>
     <string name="theme_hint">Введіть назву теми</string>
