@@ -265,7 +265,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         if (isWindow){
             window = 5*60*1000; //5 minutes in milliseconds
         }
-        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         List<StudyGroup> groupList = dbHelper.groups.getAll(null);
         List<StudySubject> subjectList = dbHelper.subjects.getAll(null);
         List<StudyClassType> classTypeList = dbHelper.classTypes.getAll(null);
@@ -551,7 +551,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         targetView = (TextView) blankLayout.findViewWithTag(new BlankTagHandler(
                 BlankTagHandler.CeilType.ABSENT_ROW_CEIL, tagHandler.getClassId(), -1L, null));
         if (targetView == null) return;
-        targetView.setText(String.valueOf(SQLiteJournalHelper.getInstance(getActivity(), true).marks
+        targetView.setText(String.valueOf(SQLiteJournalHelper.getWritableInstance(getActivity()).marks
                                                   .getAbsentNumInClass(selectedGroupId,tagHandler.getClassId())));
     }
 
@@ -591,7 +591,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         if (menu == null) return;
         MenuItem menuItem = menu.findItem(R.id.menu_semester_select);
         if (selectedGroupId != null) {
-            dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+            dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
             StudyGroup studyGroup = dbHelper.groups.get(selectedGroupId);
             if (studyGroup != null) {
                 if (newSemester != null) {
@@ -611,7 +611,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
 
     private void showSemesterSelectDialog() {
         if (selectedGroupId == null) return;
-        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyGroup studyGroup = dbHelper.groups.get(selectedGroupId);
         if (studyGroup == null) return;
         final NumberPicker numberPicker = new NumberPicker(getActivity());
@@ -829,7 +829,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
                         showStudentAUDDialog(BaseAUDDialog.DIALOG_DELETE, studentId, null);
                         break;
                     case MENU_DELETE_IN_GROUP:
-                        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                         List<StudyGroup> groupList =
                                 dbHelper.groups.getGroupsByStudentId(studentId);
                         if (groupList != null && groupList.size() > 1) {
@@ -1034,7 +1034,7 @@ public class BlankFragment extends Fragment implements DialogClickListener,
         }
 
         String fileName = "";
-        dbHelper = SQLiteJournalHelper.getInstance(getActivity(),true);
+        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyGroup group = dbHelper.groups.get(selectedGroupId);
         if(group != null){
             fileName += group.getCode();

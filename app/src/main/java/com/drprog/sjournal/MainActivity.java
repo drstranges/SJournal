@@ -1,23 +1,30 @@
 package com.drprog.sjournal;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.drprog.sjournal.db.exception.NotValidBackupDbException;
 import com.drprog.sjournal.blank.BlankFragment;
+import com.drprog.sjournal.db.SQLiteBackupHelper;
 import com.drprog.sjournal.db.SQLiteJournalHelper;
 import com.drprog.sjournal.db.prefs.SQLiteProfileHelper;
 import com.drprog.sjournal.dialogs.AboutDialog;
-import com.drprog.sjournal.dialogs.BackupDbDialog;
 import com.drprog.sjournal.dialogs.HelpDialog;
+import com.drprog.sjournal.utils.IOFiles;
 import com.drprog.sjournal.utils.RunUtils;
 
 
 
 public class MainActivity extends Activity {
+
+    private static final int REQUEST_CODE_PICK_DB_EXPORT_LOCATION = 305;
+    private static final int REQUEST_CODE_PICK_DB_SOURCE_TO_RESTORE_LOCATION = 306;
     private int backPressCount = 0;
 
 
@@ -35,10 +42,10 @@ public class MainActivity extends Activity {
                     .commit();
 
         }
-        SQLiteJournalHelper.getInstance(this, true).forceClose();
+        SQLiteJournalHelper.getWritableInstance(this).forceClose();
         SQLiteProfileHelper.getInstance(this, true).forceClose();
 
-        SQLiteJournalHelper.getInstance(this, true);
+        SQLiteJournalHelper.getWritableInstance(this);
         SQLiteProfileHelper.getInstance(this, true);
 
         //Log.d(DebugUtils.TAG_DEBUG, "-----MainActivity.onCreate-----");
@@ -123,10 +130,10 @@ public class MainActivity extends Activity {
             showPreferences();
             return true;
         } else if (id == R.id.menu_database_export) {
-            showBackUpDialog(BackupDbDialog.DIALOG_BACKUP);
+            onDbBackupOptionClicked();
             return true;
         } else if (id == R.id.menu_database_restore) {
-            showBackUpDialog(BackupDbDialog.DIALOG_RESTORE);
+            onDbRestoreOptionClicked();
             return true;
         } else if (id == R.id.menu_help) {
             showHelpDialog();
@@ -149,11 +156,6 @@ public class MainActivity extends Activity {
                 .show(getFragmentManager(), "dialog");
     }
 
-    private void showBackUpDialog(int dialogBackup) {
-        BackupDbDialog.newInstance(dialogBackup)
-                .show(getFragmentManager(), "dialog");
-    }
-
     private void showPreferences() {
         try{
             Intent intent = new Intent(MainActivity.this, com.drprog.sjournal.PrefsActivity.class);
@@ -167,6 +169,76 @@ public class MainActivity extends Activity {
 //        DebugUtils.deleteJournalDatabase(getApplicationContext());
 //    }
 
+
+    private void onDbBackupOptionClicked() {
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_TITLE, "sjournal_backup.dbk");
+
+        startActivityForResult(intent, REQUEST_CODE_PICK_DB_EXPORT_LOCATION);
+    }
+
+    private void onDbRestoreOptionClicked() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.dialog_database_restore_title)
+                .setMessage(R.string.dialog_database_restore_message)
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> pickDbSourceToRestore())
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void pickDbSourceToRestore() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+
+        startActivityForResult(intent, REQUEST_CODE_PICK_DB_SOURCE_TO_RESTORE_LOCATION);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PICK_DB_EXPORT_LOCATION && resultCode == Activity.RESULT_OK) {
+            Uri targetFileUri = data.getData();
+            if (targetFileUri != null) {
+                backupDb(targetFileUri);
+            }
+        } else if (requestCode == REQUEST_CODE_PICK_DB_SOURCE_TO_RESTORE_LOCATION && resultCode == Activity.RESULT_OK) {
+            Uri sourceFileUri = data.getData();
+            if (sourceFileUri != null) {
+                restoreDb(sourceFileUri);
+            }
+        }
+    }
+
+    private void backupDb(Uri destinationUri) {
+        SQLiteJournalHelper.getInstance(this).close();
+        boolean saved = IOFiles.exportDB(
+                this.getApplicationContext(),
+                SQLiteJournalHelper.DB_NAME,
+                destinationUri
+        );
+        if (saved) {
+            RunUtils.showToast(this, R.string.db_save_ok);
+        } else {
+            RunUtils.showToast(this, R.string.error);
+        }
+    }
+
+    private void restoreDb(Uri sourceFileUri) {
+        BlankFragment blankFragment = (BlankFragment)
+                getFragmentManager().findFragmentByTag(BlankFragment.TAG);
+        if (blankFragment != null) blankFragment.clearBlank();
+        try {
+            SQLiteBackupHelper.restoreDB(this, sourceFileUri);
+            RunUtils.showToast(this, R.string.toast_db_restored_successfully);
+        } catch (NotValidBackupDbException e) {
+            e.printStackTrace();
+            RunUtils.showToast(this, R.string.toast_db_restore_error);
+        }
+        if (blankFragment != null) blankFragment.refreshBlank();
+    }
 
     @Override
     public void onBackPressed() {

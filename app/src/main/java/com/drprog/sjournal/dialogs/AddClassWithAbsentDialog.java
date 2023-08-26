@@ -109,7 +109,7 @@ public class AddClassWithAbsentDialog extends BaseDialogFragment {
         if (argGroupId == null || argSubjectId == null || argClassTypeId == null) {
             return;
         }
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyGroup studyGroup = dbHelper.groups.get(argGroupId);
         if (studyGroup == null) return;
         if (getDialog() != null) {
@@ -158,7 +158,7 @@ public class AddClassWithAbsentDialog extends BaseDialogFragment {
                     showNotify(editText, R.string.error_entry_start_with_space);
                     return;
                 }
-                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 int semester = dbHelper.groups.get(argGroupId).getSemester();
                 String date = TableClasses.dateFormat.format(Calendar.getInstance().getTime());
                 StudyClass studyClass =

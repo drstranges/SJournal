@@ -137,11 +137,10 @@
     <string name="menu_database">Database</string>
     <string name="menu_database_export">Backup</string>
     <string name="menu_database_restore">Restore</string>
-    <string name="dialog_database_backup_title">Enter the file name</string>
-    <string name="dialog_database_backup_edit_hint">File name…</string>
-    <string name="db_save_ok">Database saved successful</string>
+    <string name="db_save_ok">Saved!</string>
     <string name="error_ext_storage_not_writable">Error!\nExternal Storage not found!</string>
-    <string name="dialog_database_restore_title">Restoring a saved copy of the database</string>
+    <string name="dialog_database_restore_title">Caution!</string>
+    <string name="dialog_database_restore_message">You are going to restore DB from file. Your current data will be lost and replaced by selected DB file! Continue?</string>
     <string name="dialog_database_backup_list_empty">Backup files not found…</string>
 
     <string name="dialog_import_students_pick_file_button">Click to pick a file"</string>
@@ -272,5 +271,7 @@
 
     <string name="toast_blank_export_blank_not_selected">Select blank firstly.</string>
     <string name="toast_blank_export_success">Saved!</string>
+    <string name="toast_db_restored_successfully">Database restored successfully!</string>
+    <string name="toast_db_restore_error">Error! Can\'t restore database from selected file!</string>
 
 </resources>

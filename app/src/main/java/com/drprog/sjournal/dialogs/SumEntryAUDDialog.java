@@ -138,7 +138,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
             @Override
             public void onClick(View v) {
 
-                dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 StudyGroup studyGroup = dbHelper.groups.get(argGroupId);
                 if (studyGroup == null) return;
                 SummaryEntry entry =
@@ -179,7 +179,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
             @Override
             public void onClick(View v) {
 
-                dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 SummaryEntry entry = dbHelper.summaryEntries.get(argEntryId);
                 if (entry == null) return;
                 StudyGroup studyGroup = dbHelper.groups.get(entry.getGroupId());
@@ -220,7 +220,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
 
     private void fillForm() {
         if (argEntryId == null) return;
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         SummaryEntry summaryEntry = dbHelper.summaryEntries.get(argEntryId);
         if (summaryEntry == null) return;
         bgColor = summaryEntry.getRowColor();
@@ -259,7 +259,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
                 }
 
 
-                dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 long res = dbHelper.summaryEntries.delete(argEntryId);
                 if (res < 0) {
                     showNotify(null, R.string.error);
@@ -360,7 +360,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
 
     private void setClassTypeSpinner(Long id) {
         if (argEntryId == null && (argGroupId == null || argSubjectId == null)) return;
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final StudyClassType classType = new StudyClassType(-1L, getString(R.string.they_all),
                                                             getString(R.string.absent_num), -1);
         final List<StudyClassType> classTypeList =
@@ -400,7 +400,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
     }
 
     private void setClassesSpinner(Long id) {
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         if (argEntryId == null && (argGroupId == null || argSubjectId == null)) return;
         if (classTypeId == null || classTypeId == -1L) {
             spinnerClass.setAdapter(null);
@@ -471,7 +471,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
     }
 
     private void showChoiceRuleDialog() {
-        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<Rule> itemList =
                 dbHelper.rules.getAll(TableRules.KEY_OPERATOR_ID + ", " + TableRules.KEY_ARGUMENT);
         itemList.removeAll(ruleList);
@@ -504,7 +504,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
 
     private void addRuleInList(Rule rule) {
         if (rule.getId() == null) {
-            dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+            dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
             rule = dbHelper.rules.getRule(rule);
             if (rule == null) return;
         }
@@ -568,7 +568,7 @@ public class SumEntryAUDDialog extends BaseAUDDialog {
                         Integer result = RunUtils.tryParse(resultS);
                         if (result == null)return;
                         Rule rule = new Rule(sign, argS, result);
-                        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                         if (!dbHelper.rules.exists(rule)) {
                             long res = dbHelper.rules.insert(rule);
                             if (res != -1) {

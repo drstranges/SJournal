@@ -97,7 +97,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
     @Override
     protected View dlgUpdate(View rootView, LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyMark studyMark = dbHelper.marks.get(argStudentId, argClassId);
         if (studyMark != null) {
             switch (studyMark.getType()) {
@@ -164,7 +164,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
             Bundle savedInstanceState) {
 
         if (argStudentId == null || argClassId == null) return null;
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         Student student = dbHelper.students.get(argStudentId);
         StudyClass studyClass = dbHelper.classes.get(argClassId);
         if (getDialog() != null) {
@@ -279,7 +279,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
 
     private void showSymbolChoiceDialog() {
         String defaultSymbol = null;
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyMark studyMark = dbHelper.marks.get(argStudentId, argClassId);
         if (studyMark != null) defaultSymbol = studyMark.getSymbol();
         final EditText editText = new EditText(getActivity());
@@ -320,7 +320,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
 
     private void showMarkChoiceDialog() {
         String defaultSymbol = null;
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyMark studyMark = dbHelper.marks.get(argStudentId, argClassId);
         if (studyMark != null && studyMark.getType() == StudyMark.TYPE_MARK) {
             defaultSymbol = studyMark.getMark().toString();
@@ -365,7 +365,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
     }
 
     private int deleteMark() {
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyMark studyMark = dbHelper.marks.get(argStudentId, argClassId);
         if (studyMark != null) {
             int res = dbHelper.marks.delete(studyMark.getId());
@@ -378,7 +378,7 @@ public class MarkAUDDialog extends BaseAUDDialog {
     }
 
     private long createMark(StudyMark studyMark) {
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         if (studyMark != null) {
             deleteMark();
             long res = dbHelper.marks.insert(studyMark);

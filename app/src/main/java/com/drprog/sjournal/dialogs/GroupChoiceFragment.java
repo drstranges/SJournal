@@ -91,7 +91,7 @@ public class GroupChoiceFragment extends DialogFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyGroup> groupList = dbHelper.groups.getAllByFilter(subjectId, classTypeId);
         GroupChoiceAdapter adapter =
                 new GroupChoiceAdapter(getActivity(), groupList,
@@ -121,7 +121,7 @@ public class GroupChoiceFragment extends DialogFragment {
                     dismiss();
                 } else if (id == BaseChoiceAdapter.TYPE_MORE) {
                     SQLiteJournalHelper dbHelper =
-                            SQLiteJournalHelper.getInstance(getActivity(), true);
+                            SQLiteJournalHelper.getWritableInstance(getActivity());
                     groupList.clear();
                     groupList.addAll(dbHelper.groups.getAll(TableGroups.KEY_CODE));
                     GroupChoiceAdapter adapter =
@@ -155,7 +155,7 @@ public class GroupChoiceFragment extends DialogFragment {
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) menuInfo;
         if (info.id < 0) return;
-        StudyGroup group = SQLiteJournalHelper.getInstance(getActivity(), true).groups.get(info.id);
+        StudyGroup group = SQLiteJournalHelper.getWritableInstance(getActivity()).groups.get(info.id);
         if (group != null) {
             menu.setHeaderTitle(group.toString());
         } else {

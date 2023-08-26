@@ -77,7 +77,7 @@ public class SubjectAUDDialog extends BaseAUDDialog {
         viewAbbr.setHint(R.string.dialog_subject_add_abbr_hint);
         viewTitle.setHint(R.string.dialog_subject_add_title_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<String> abbrList = dbHelper.subjects.getAllInColumn(TableSubjects.KEY_ABBR);
         final List<String> titleList = dbHelper.subjects.getAllInColumn(TableSubjects.KEY_TITLE);
         //Set Listeners
@@ -128,7 +128,7 @@ public class SubjectAUDDialog extends BaseAUDDialog {
         viewAbbr.setHint(R.string.dialog_subject_add_abbr_hint);
         viewTitle.setHint(R.string.dialog_subject_add_title_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudySubject> studySubjectList =
                 dbHelper.subjects.getAll(TableSubjects.KEY_ABBR);
         final List<String> abbrList =
@@ -214,7 +214,7 @@ public class SubjectAUDDialog extends BaseAUDDialog {
             }
         });
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudySubject> studySubjectList =
                 dbHelper.subjects.getAll(TableSubjects.KEY_ABBR);
         if (studySubjectList.isEmpty()) {

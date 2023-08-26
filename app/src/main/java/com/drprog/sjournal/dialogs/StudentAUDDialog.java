@@ -135,7 +135,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
                 String phoneHome = viewPhoneHome.getText().toString();
                 String note = viewNote.getText().toString();
                 Long id = null;
-                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
 
                 if (switchId) {
                     if (!checkEntry(viewId, studentIdString, null, null)) {
@@ -248,7 +248,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
                 String phoneHome = viewPhoneHome.getText().toString();
                 String note = viewNote.getText().toString();
                 Long id;
-                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
 
                 if (switchId) {
                     if (!checkEntry(viewId, studentIdString, null, null)) {
@@ -370,7 +370,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SQLiteJournalHelper dbHelper =
-                                        SQLiteJournalHelper.getInstance(getActivity(), true);
+                                        SQLiteJournalHelper.getWritableInstance(getActivity());
                                 long res = dbHelper.students.delete(argStudentId);
                                 if (res == -1) {
                                     showNotify(null, R.string.error);
@@ -464,7 +464,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
         });
         viewSwitchId.setChecked(PrefsManager.getInstance(getActivity()).getPrefs()
                                         .getBoolean(PrefsManager.PREFS_MANUAL_STUDENT_ID, false));
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         allGroupsList = dbHelper.groups.getAll(TableGroups.KEY_CODE);
         checkedItems = new boolean[allGroupsList.size()];
 
@@ -506,7 +506,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
 
     private boolean fillForm() {
         if (argStudentId != null) {
-            SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+            SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
             Student student = dbHelper.students.get(argStudentId);
             selectedGroupList.addAll(dbHelper.groups.getGroupsByStudentId(student.getId()));
             viewGroups.setText(selectedGroupList.toString());
@@ -529,7 +529,7 @@ public class StudentAUDDialog extends BaseAUDDialog {
     private View getStudentChoiceDialog(LayoutInflater inflater, ViewGroup container) {
         View rootView = inflater.inflate(R.layout.fragment_choice, container);
         ListView listView = (ListView) rootView.findViewById(android.R.id.list);
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<Student> studentList = dbHelper.students.getAll(TableStudents.KEY_NAME_LAST);
         ArrayAdapter<Student> adapter =
                 new ArrayAdapter<Student>(getActivity(), R.layout.item_list, studentList);

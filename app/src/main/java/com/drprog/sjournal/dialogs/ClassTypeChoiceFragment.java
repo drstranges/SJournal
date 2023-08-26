@@ -79,7 +79,7 @@ public class ClassTypeChoiceFragment extends DialogFragment {
         final View v = inflater.inflate(R.layout.dialog_grid, container, false);
 
         final GridView gridView = (GridView) v.findViewById(R.id.grid1);
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyClassType> classTypeList =
                 dbHelper.classTypes.getAllByFilter(subjectId, groupId);
         ClassTypeChoiceAdapter adapter =
@@ -97,7 +97,7 @@ public class ClassTypeChoiceFragment extends DialogFragment {
 
                 if (id == BaseChoiceAdapter.TYPE_MORE) {
                     SQLiteJournalHelper dbHelper =
-                            SQLiteJournalHelper.getInstance(getActivity(), true);
+                            SQLiteJournalHelper.getWritableInstance(getActivity());
                     classTypeList.clear();
                     classTypeList.addAll(dbHelper.classTypes.getAll(TableClasses.KEY_ABBR));
                     ClassTypeChoiceAdapter adapter =
@@ -149,7 +149,7 @@ public class ClassTypeChoiceFragment extends DialogFragment {
                 (AdapterView.AdapterContextMenuInfo) menuInfo;
         if (info.id < 0) return;
         StudyClassType classType =
-                SQLiteJournalHelper.getInstance(getActivity(), true).classTypes.get(info.id);
+                SQLiteJournalHelper.getWritableInstance(getActivity()).classTypes.get(info.id);
         if (classType != null) {
             menu.setHeaderTitle(classType.toString());
         } else {

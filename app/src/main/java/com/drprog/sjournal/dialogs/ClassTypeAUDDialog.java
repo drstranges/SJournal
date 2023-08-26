@@ -77,7 +77,7 @@ public class ClassTypeAUDDialog extends BaseAUDDialog {
         viewAbbr.setHint(R.string.dialog_class_type_add_abbr_hint);
         viewTitle.setHint(R.string.dialog_class_type_add_title_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<String> abbrList = dbHelper.classTypes.getAllInColumn(TableClassTypes.KEY_ABBR);
         final List<String> titleList =
                 dbHelper.classTypes.getAllInColumn(TableClassTypes.KEY_TITLE);
@@ -130,7 +130,7 @@ public class ClassTypeAUDDialog extends BaseAUDDialog {
         viewAbbr.setHint(R.string.dialog_class_type_update_abbr_hint);
         viewTitle.setHint(R.string.dialog_class_type_update_title_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyClassType> studyClassTypeList =
                 dbHelper.classTypes.getAll(TableClassTypes.KEY_ABBR);
         final List<String> abbrList =
@@ -217,7 +217,7 @@ public class ClassTypeAUDDialog extends BaseAUDDialog {
             }
         });
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyClassType> studyClassTypesList =
                 dbHelper.classTypes.getAll(TableClassTypes.KEY_ABBR);
         if (studyClassTypesList.isEmpty()) {

@@ -30,7 +30,6 @@ import com.drprog.sjournal.R;
 import com.drprog.sjournal.utils.IOFiles;
 import com.drprog.sjournal.utils.RunUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,7 +113,7 @@ public class ImportDialog extends BaseDialogFragment {
         adapterEncoding.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEncoding.setAdapter(adapterEncoding);
 
-        dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         List<StudyGroup> groupList = dbHelper.groups.getAll(TableGroups.KEY_CODE);
         ArrayAdapter<StudyGroup> adapterGroup =
                 new ArrayAdapter<StudyGroup>(getActivity(), android.R.layout.simple_spinner_item,
@@ -317,7 +316,7 @@ public class ImportDialog extends BaseDialogFragment {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+            dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
             resultFormat = getString(R.string.dialog_result_format);
             preImportExecute();
         }

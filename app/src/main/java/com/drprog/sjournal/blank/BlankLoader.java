@@ -72,7 +72,7 @@ public class BlankLoader extends AsyncTaskLoader<LinearLayout> {
     public LinearLayout drawBlankOfClasses() {
         if (groupId == null || subjectId == null || classTypeId == null) return null;
 
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getContext(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getContext());
         dbHelper.setFrozenOn(TAG);
         try {
 
@@ -98,7 +98,7 @@ public class BlankLoader extends AsyncTaskLoader<LinearLayout> {
     public LinearLayout drawBlankOfSummary() {
         if (groupId == null || subjectId == null) return null;
 
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getContext(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getContext());
         dbHelper.setFrozenOn(TAG);
         try {
             StudyGroup studyGroup = dbHelper.groups.get(groupId);

@@ -3,21 +3,17 @@ package com.drprog.sjournal.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
-
-import com.drprog.sjournal.R;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,36 +23,36 @@ import java.util.Objects;
  * Created by Romka on 10.08.2014.
  */
 public class IOFiles {
-    public static final String DIR_BACKUP = "backup";
     public static final String FILE_BACKUP_EXT = ".dbk";
-    private Context mainContext;
-    private static String rootDirName = "SJournal_Data";
-
-    public IOFiles(Context mainContext) {
-        this.mainContext = mainContext;
-    }
-
-    /* Checks if external storage is available for read and write */
-    public static boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(state);
-    }
-
-    /* Checks if external storage is available to at least read */
-    public static boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
-    }
 
     public static void copyFile(File src, File dst) throws IOException {
-        FileChannel inChannel = new FileInputStream(src).getChannel();
-        FileChannel outChannel = new FileOutputStream(dst).getChannel();
-        try {
+        try (FileChannel inChannel = new FileInputStream(src).getChannel();
+             FileChannel outChannel = new FileOutputStream(dst).getChannel()) {
             inChannel.transferTo(0, inChannel.size(), outChannel);
-        } finally {
-            if (inChannel != null) { inChannel.close(); }
-            if (outChannel != null) { outChannel.close(); }
+        }
+    }
+
+    public static void copyFile(Context context, File src, Uri dst) throws IOException {
+        try (FileInputStream source = new FileInputStream(src);
+             OutputStream out = context.getContentResolver().openOutputStream(dst)) {
+            if (out == null) throw new IOException("Can't open target file!");
+            byte[] buf = new byte[8192];
+            int n;
+            while ((n = source.read(buf)) > 0) {
+                out.write(buf, 0, n);
+            }
+        }
+    }
+
+    public static void copyFile(Context context, Uri src, File dst) throws IOException {
+        try (InputStream source = context.getContentResolver().openInputStream(src);
+             FileOutputStream out = new FileOutputStream(dst)) {
+            if (source == null) throw new IOException("Can't open source file!");
+            byte[] buf = new byte[8192];
+            int n;
+            while ((n = source.read(buf)) > 0) {
+                out.write(buf, 0, n);
+            }
         }
     }
 
@@ -73,50 +69,10 @@ public class IOFiles {
         }
         return stringList;
     }
-    public static List<File> searchFile(File folder, String fileExt) {
-        List<File> list = new ArrayList<File>();
-        for (final File file : folder.listFiles()) {
-            if ((!file.isDirectory()) && (file.getName().endsWith(fileExt))) {
-                list.add(file);
-            }
-        }
-        return list;
-    }
 
-    public static List<String> extractFileNames(List<File> fileList) {
-        List<String> list = new ArrayList<String>();
-        for (File file : fileList) {
-            list.add(file.getName());
-        }
-        return list;
-    }
-
-    public static File getExternalPath(String dirName) {
-        if (!isExternalStorageWritable()) {
-            return null;
-        }
-
-        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath();
-        if (rootDirName != null && !rootDirName.equals("")) path = path + "/" + rootDirName;
-        if (dirName != null && !dirName.equals("")) path = path + "/" + dirName;
-        File file = new File(path);
-        file.mkdirs();
-        return file;
-    }
-
-    public void writeFileEx(String dirName, String fileName, String str) {
-        if (!isExternalStorageWritable()) {
-            return;
-        }
-        try {
-            File dir = getExternalPath(dirName);
-            File file = new File(dir, fileName);
-            if (file.exists()) {
-                RunUtils.showToast(mainContext, R.string.error_file_exists);
-            } else {
-                file.createNewFile();
-            }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+    public static void writeFileEx(Context context, Uri fileUri, String str) {
+        try (OutputStream out = context.getContentResolver().openOutputStream(fileUri)) {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
             bw.write(str);
             bw.close();
         } catch (IOException e) {
@@ -124,9 +80,9 @@ public class IOFiles {
         }
     }
 
-    public void copyTestDB(String dbName, String fileName) throws IOException {
-        InputStream myInput = mainContext.getAssets().open(fileName);
-        File currentDB = mainContext.getDatabasePath(dbName);
+    public static void copyTestDB(Context context, String dbName, String fileName) throws IOException {
+        InputStream myInput = context.getAssets().open(fileName);
+        File currentDB = context.getDatabasePath(dbName);
         String outFileName = currentDB.getAbsolutePath();
         if (currentDB.exists()) currentDB.delete();
         currentDB.createNewFile();
@@ -141,9 +97,9 @@ public class IOFiles {
         myInput.close();
     }
 
-    public String saveDbToInternalDir(String dbName, String fileName) {
-        File currentDB = mainContext.getDatabasePath(dbName);
-        File exportDir = mainContext.getFilesDir();
+    public static File saveDbToInternalDir(Context context, String dbName, String fileName) {
+        File currentDB = context.getDatabasePath(dbName);
+        File exportDir = context.getFilesDir();
         File toFile = new File(exportDir, fileName);
         if (toFile.exists()) return null;
         exportDir.mkdirs();
@@ -154,55 +110,35 @@ public class IOFiles {
             e.printStackTrace();
             return null;
         }
-        return toFile.getAbsolutePath();
+        return toFile;
     }
 
-    public String exportDB(String dbName, String dirName, String fileName) {
-        File currentDB = mainContext.getDatabasePath(dbName);
-        File exportDir = getExternalPath(dirName);
-        File toFile = new File(exportDir, fileName);
-        if (toFile.exists()) return null;
-        exportDir.mkdirs();
+    public static boolean exportDB(Context context, String dbName, Uri exportFileUri) {
+        File currentDB = context.getDatabasePath(dbName);
         try {
-            toFile.createNewFile();
-            copyFile(currentDB, toFile);
+            copyFile(context, currentDB, exportFileUri);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return false;
         }
-        return toFile.getAbsolutePath();
+        return true;
     }
 
-    public boolean isFileExists(String dirName, String fileName) {
-        File dir = getExternalPath(dirName);
-        File file = new File(dir, fileName);
-        return !file.exists();
+    public static void restoreDB(Context context, String dbName, Uri sourceFileUri) throws IOException {
+        File currentDB = context.getDatabasePath(dbName);
+        if (currentDB.exists()) currentDB.delete();
+        currentDB.createNewFile();
+        copyFile(context, sourceFileUri, currentDB);
     }
 
-    public String restoreDB(String dbName, String dirName, String fileName) {
-        File currentDB = mainContext.getDatabasePath(dbName);
-        File importDir = getExternalPath(dirName);
-        File fromFile = new File(importDir, fileName);
-        if (!importDir.exists()) {
-            return null;
-        }
-        try {
-            currentDB.createNewFile();
-            copyFile(fromFile, currentDB);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return fromFile.getName();
+    public static void restoreDB(Context context, String dbName, File backupFile) throws IOException {
+        File currentDB = context.getDatabasePath(dbName);
+        if (currentDB.exists()) currentDB.delete();
+        currentDB.createNewFile();
+        copyFile(backupFile, currentDB);
     }
 
-    public List<File> searchFile(String dirName, String fileExt) {
-        File dir = getExternalPath(dirName);
-        if (!dir.exists()) return null;
-        return searchFile(dir, fileExt);
-    }
-
-    public static Boolean saveImage(Context context, Bitmap finalBitmap, Uri exportFileUri) {
+    public static boolean saveImage(Context context, Bitmap finalBitmap, Uri exportFileUri) {
         try (OutputStream out = context.getContentResolver().openOutputStream(exportFileUri)) {
             finalBitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             out.flush();

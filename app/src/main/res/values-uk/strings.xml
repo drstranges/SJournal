@@ -141,11 +141,10 @@
     <string name="menu_database">База даних</string>
     <string name="menu_database_export">Зберегти</string>
     <string name="menu_database_restore">Відновити</string>
-    <string name="dialog_database_backup_title">Введіть ім\'я файлу</string>
-    <string name="dialog_database_backup_edit_hint">Назва файлу…</string>
     <string name="db_save_ok">База даних збережена</string>
     <string name="error_ext_storage_not_writable">Помилка!\nSD карта не знайдена!</string>
-    <string name="dialog_database_restore_title">Відновлення збереженої копії бази</string>
+    <string name="dialog_database_restore_title">Увага!</string>
+    <string name="dialog_database_restore_message">Ви збираєтесь відновити базу даних із збереженого раніше файлу. При цьому усі поточні дані будуть видалені і замінені даними із вибраного файлу. Продовжити?</string>
     <string name="dialog_database_backup_list_empty">Збережені копії не знайдені…</string>
 
     <string name="dialog_import_students_pick_file_button">Натисніть тут для вибору файлу</string>
@@ -278,5 +277,7 @@
 
     <string name="toast_blank_export_blank_not_selected">Спочатку виберіть журнал.</string>
     <string name="toast_blank_export_success">Збережено!</string>
+    <string name="toast_db_restored_successfully">Базу даних відновлено!</string>
+    <string name="toast_db_restore_error">Помилка! Неможливо відновити базу даних із вибраного файлу!</string>
 
 </resources>

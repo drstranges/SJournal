@@ -82,7 +82,7 @@ public class SubjectChoiceFragment extends DialogFragment {
 
         final GridView gridView = (GridView) v.findViewById(R.id.grid1);
         registerForContextMenu(gridView);
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudySubject> subjectList =
                 dbHelper.subjects.getAllByFilter(groupId, classTypeId);
         SubjectChoiceAdapter adapter =
@@ -100,7 +100,7 @@ public class SubjectChoiceFragment extends DialogFragment {
 
                 if (id == BaseChoiceAdapter.TYPE_MORE) {
                     SQLiteJournalHelper dbHelper =
-                            SQLiteJournalHelper.getInstance(getActivity(), true);
+                            SQLiteJournalHelper.getWritableInstance(getActivity());
                     subjectList.clear();
                     subjectList.addAll(dbHelper.subjects.getAll(TableSubjects.KEY_ABBR));
                     SubjectChoiceAdapter adapter =
@@ -151,7 +151,7 @@ public class SubjectChoiceFragment extends DialogFragment {
                 (AdapterView.AdapterContextMenuInfo) menuInfo;
         if (info.id < 0) return;
         StudySubject subject =
-                SQLiteJournalHelper.getInstance(getActivity(), true).subjects.get(info.id);
+                SQLiteJournalHelper.getWritableInstance(getActivity()).subjects.get(info.id);
         if (subject != null) {
             menu.setHeaderTitle(subject.toString());
         } else {

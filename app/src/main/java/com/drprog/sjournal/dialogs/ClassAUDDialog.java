@@ -137,7 +137,7 @@ public class ClassAUDDialog extends BaseAUDDialog implements DatePickerDialog.On
                     viewAbbr.setError(getActivity().getResources().getString(R.string.error));
                     return;
                 }
-                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 int semester = dbHelper.groups.get(argGroupId).getSemester();
                 String date = TableClasses.dateFormat.format(calendar.getTime());
                 StudyClass studyClass =
@@ -174,7 +174,7 @@ public class ClassAUDDialog extends BaseAUDDialog implements DatePickerDialog.On
                     return;
                 }
                 if (!checkEntry(viewAbbr, abbr, null, null)) return;
-                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+                SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
                 StudyClass studyClass = dbHelper.classes.get(argClassId);
                 String date = TableClasses.dateFormat.format(calendar.getTime());
                 studyClass.setDate(date);
@@ -197,7 +197,7 @@ public class ClassAUDDialog extends BaseAUDDialog implements DatePickerDialog.On
 
     private void fillForm() {
         if (argClassId == null) return;
-        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         StudyClass studyClass = dbHelper.classes.get(argClassId);
         viewAbbr.setText(studyClass.getAbbr());
         viewTheme.setText(studyClass.getTheme());
@@ -241,7 +241,7 @@ public class ClassAUDDialog extends BaseAUDDialog implements DatePickerDialog.On
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SQLiteJournalHelper dbHelper =
-                                        SQLiteJournalHelper.getInstance(getActivity(), true);
+                                        SQLiteJournalHelper.getWritableInstance(getActivity());
                                 long res = dbHelper.classes.delete(argClassId);
                                 if (res < 0) {
                                     showNotify(null, R.string.error);

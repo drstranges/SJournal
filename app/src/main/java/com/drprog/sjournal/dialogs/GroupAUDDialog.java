@@ -77,7 +77,7 @@ public class GroupAUDDialog extends BaseAUDDialog {
         //Set Hints
         viewGroupCode.setHint(R.string.dialog_group_add_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<String> groupCodeList = dbHelper.groups.getAllInColumn(TableGroups.KEY_CODE);
         //Set Listeners
         btnOk.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +120,7 @@ public class GroupAUDDialog extends BaseAUDDialog {
         //Set Hints
         viewGroupNew.setHint(R.string.dialog_group_update_hint);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyGroup> groupList = dbHelper.groups.getAll(TableGroups.KEY_CODE);
         final List<String> codeList = dbHelper.groups.getAllInColumn(TableGroups.KEY_CODE);
         if (groupList.isEmpty()) {
@@ -200,7 +200,7 @@ public class GroupAUDDialog extends BaseAUDDialog {
         });
         checkBox.setText(R.string.dialog_group_delete_with_students);
         //Query DB
-        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getInstance(getActivity(), true);
+        final SQLiteJournalHelper dbHelper = SQLiteJournalHelper.getWritableInstance(getActivity());
         final List<StudyGroup> groupList = dbHelper.groups.getAll(TableGroups.KEY_CODE);
         if (groupList.isEmpty()) {
             showNotify(null, R.string.list_empty);

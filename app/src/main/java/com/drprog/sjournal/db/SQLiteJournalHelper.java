@@ -1,8 +1,11 @@
 package com.drprog.sjournal.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.os.Build;
 
 import com.drprog.sjournal.db.entity.StudyMark;
@@ -21,7 +24,7 @@ import java.util.Locale;
 public class SQLiteJournalHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "SJournalDB.db";
-    private static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 3;
 
     //private static final String OLD_DB_NAME = "SJournalDB.db";
     //private static final String DB_TEST = "com.drprog.test.tdb";    // Test db-file
@@ -59,8 +62,7 @@ public class SQLiteJournalHelper extends SQLiteOpenHelper {
         return ourInstance;
     }
 
-    public static synchronized SQLiteJournalHelper getInstance(Context context,
-            boolean getWritableDataBase) {
+    public static synchronized SQLiteJournalHelper getWritableInstance(Context context) {
         ourInstance = getInstance(context);
         ourInstance.getWritableDatabase();
         return ourInstance;
@@ -195,8 +197,7 @@ public class SQLiteJournalHelper extends SQLiteOpenHelper {
 
     private void migrateFromFirstBeta(SQLiteDatabase db) {
         //DebugUtils.log_d("Check " + DB_NAME + " for Exists: " + isDbFileExists(DB_NAME));
-        IOFiles ioFiles = new IOFiles(mainContext);
-        ioFiles.saveDbToInternalDir(DB_NAME, OLD_DB_SAVED_FILE_NAME);
+        IOFiles.saveDbToInternalDir(mainContext, DB_NAME, OLD_DB_SAVED_FILE_NAME);
         //------------- Delete Triggers ------------------------------------------------------------
         db.setLocale(Locale.getDefault());
         db.execSQL("DROP TRIGGER IF EXISTS tr_Profiles");
