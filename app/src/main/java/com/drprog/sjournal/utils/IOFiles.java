@@ -65,7 +65,7 @@ public class IOFiles {
 
         try (InputStream inputStream = context.getContentResolver().openInputStream(uri);
              BufferedReader reader = new BufferedReader(
-                     new InputStreamReader(Objects.requireNonNull(inputStream)))) {
+                     new InputStreamReader(Objects.requireNonNull(inputStream), charsetName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 stringList.add(line);
