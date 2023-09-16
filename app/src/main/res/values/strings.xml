@@ -59,13 +59,10 @@
     <string name="groups">Groups</string>
     <string name="dialog_groups_choice_hint">Select groups</string>
     <string name="get_choice">Select</string>
-    <string name="e_mail">e-mail</string>
-    <string name="phone_mob">Mob. Phone</string>
-    <string name="phone_home">Phone</string>
+    <string name="e_mail">Notes 1</string>
+    <string name="phone_mob">Notes 2</string>
+    <string name="phone_home">Notes 3</string>
     <string name="note">Note</string>
-    <string name="e_mail_hint">e-mail is not specified</string>
-    <string name="phone_mob_hint">Mob. phone</string>
-    <string name="phone_home_hint">Phone</string>
     <string name="note_hint">Any text</string>
     <string name="dialog_student_add_title">Adding a student…</string>
     <string name="preference_general_auto_student_id_summary">Enter Student ID manually</string>
@@ -157,7 +154,7 @@
     <string name="dialog_result_format">Imported %1$d of %2$d.\nGenerated new id for %3$d student(s)!\n\nThe right of imports:\n- Records that contain errors will be not imported!\n- in coincidence with the student id available in the database, the record will not be added!\n-for records without id, it will be automatically generated from a random number!</string>
     <string name="dialog_import_successful">Import successfully completed!</string>
     <string name="dialog_import_data_empty">Data not recognized…\nCheck the file structure!</string>
-    <string name="import_rule">File format: csv, where each line is info about a student in format:\n{id; (may be missing)}[Last Name];[First Name];[Middle Name];[e-mail];[phone1];[phone2];[note]. Example:\n=====================\nFile name: Group1.csv\nPotter;Harry;;gp@gmail.com;;;The Boy Who Lived\n=====================\n*. In the .csv format can be easily imported any list of students from Excel or other text editor.</string>
+    <string name="import_rule">File format: csv, where each line is info about a student in format:\n{id; (may be missing)}[Last Name];[First Name];[Middle Name];[note1];[note2];[note3];[note]. Example:\n=====================\nFile name: Group1.csv\nPotter;Harry;;gp@gmail.com;;;The Boy Who Lived\n=====================\n*. In the .csv format can be easily imported any list of students from Excel or other text editor.</string>
     <string name="menu_blank_style">Table style</string>
     <string name="fragment_blank_style_topic">Title</string>
     <string name="study_class">Class</string>

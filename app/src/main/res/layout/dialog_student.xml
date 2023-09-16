@@ -166,13 +166,12 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:autoLink="email"
                         android:ems="10"
                         android:gravity="center_horizontal"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:linksClickable="true"
-                        android:hint="@string/e_mail_hint"
+                        android:hint="@string/note_hint"
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                     <ImageButton
@@ -205,11 +204,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:autoLink="phone"
                         android:gravity="center_horizontal"
-                        android:inputType="phone"
                         android:linksClickable="true"
-                        android:hint="@string/phone_mob_hint"
+                        android:hint="@string/note_hint"
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                     <ImageButton
@@ -242,11 +239,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:autoLink="phone"
                         android:gravity="center_horizontal"
-                        android:inputType="phone"
                         android:linksClickable="true"
-                        android:hint="@string/phone_home_hint"
+                        android:hint="@string/note_hint"
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                     <ImageButton

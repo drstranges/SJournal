@@ -61,13 +61,10 @@
     <string name="groups">Групи</string>
     <string name="dialog_groups_choice_hint">Виберіть групи</string>
     <string name="get_choice">Вибрати</string>
-    <string name="e_mail">e-mail</string>
-    <string name="phone_mob">Телефон (моб.)</string>
-    <string name="phone_home">Телефон (дом.)</string>
+    <string name="e_mail">Примітка 1</string>
+    <string name="phone_mob">Примітка 2</string>
+    <string name="phone_home">Примітка 3</string>
     <string name="note">Примітка</string>
-    <string name="e_mail_hint">e-mail не заданий</string>
-    <string name="phone_mob_hint">Мобільный телефон</string>
-    <string name="phone_home_hint">Стаціонарний телефон</string>
     <string name="note_hint">Будь-який текст</string>
     <string name="dialog_student_add_title">Додавання студента…</string>
     <string name="preference_general_auto_student_id_summary">Визначати id студента вручну</string>
@@ -162,7 +159,7 @@
     <string name="dialog_result_format">Імпортовано %1$d з %2$d.\nЗгенеровано %3$d нових id для студентів!\n\nПравила імпорту:\n- записи, що містять помилки, імпортовані не будуть!\n- при збігу id студента з наявними в базі, запис доданий не буде!\n-для записів без id останні будуть згенеровані автоматично з випадкових чисел!</string>
     <string name="dialog_import_successful">Імпорт завершено!</string>
     <string name="dialog_import_data_empty">Дані про студентів не розпізнано…\nПеревірте структуру файлу!</string>
-    <string name="import_rule">Формат файлу: csv, де кожна строка файлу це інформація про студента у форматі:\n{id;(можна не вказувати)}[Прізвище];[Ім\'я];[По-батькові];{[e-mail]};{[тел1]};{[тел2]};{[замітка]}\nПриклад:\n=====================\nІм\'я файлу: Группа1.csv\nВміст рядків файлу:\nПоттер;Гаррі;;gp@gmail.com;;;Хлопчик який вижив\n=====================\n*. У формат .csv можна легко імпортувати з Excel та ін.</string>
+    <string name="import_rule">Формат файлу: csv, де кожна строка файлу це інформація про студента у форматі:\n{id;(можна не вказувати)}[Прізвище];[Ім\'я];[По-батькові];{[заметка1]};{[заметка2]};{[заметка3]};{[замітка]}\nПриклад:\n=====================\nІм\'я файлу: Группа1.csv\nВміст рядків файлу:\nПоттер;Гаррі;;gp@gmail.com;;;Хлопчик який вижив\n=====================\n*. У формат .csv можна легко імпортувати з Excel та ін.</string>
     <string name="menu_blank_style">Стиль таблиці</string>
     <string name="fragment_blank_style_topic">Назва таблиці</string>
     <string name="study_class">Заняття</string>
