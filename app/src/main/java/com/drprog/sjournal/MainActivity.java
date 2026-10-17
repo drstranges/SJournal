@@ -1,13 +1,16 @@
 package com.drprog.sjournal;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.window.OnBackInvokedDispatcher;
 
 import com.drprog.sjournal.blank.BlankFragment;
 import com.drprog.sjournal.db.SQLiteBackupHelper;
@@ -31,6 +34,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Since targetSdk 36 onBackPressed() is not called by the system anymore
+            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+                    OnBackInvokedDispatcher.PRIORITY_DEFAULT, this::onBackPressed);
+        }
         setContentView(R.layout.activity_main);
         setTitle(null);
         BlankFragment blankFragment =
@@ -241,6 +249,7 @@ public class MainActivity extends Activity {
         if (blankFragment != null) blankFragment.refreshBlank();
     }
 
+    @SuppressLint("GestureBackNavigation") // dispatched via OnBackInvokedCallback on API 33+
     @Override
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() == 0) {

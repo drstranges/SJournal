@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 def secretProps = new Properties()
-def secretPropsFile = rootProject.file('/secret/key.secret')
+def secretPropsFile = rootProject.file('secret/key.secret')
 if (secretPropsFile.exists()) {
     secretPropsFile.withReader('UTF-8') { reader ->
         secretProps.load(reader)
@@ -9,49 +9,49 @@ if (secretPropsFile.exists()) {
 }
 
 android {
-    namespace 'com.drprog.sjournal'
-    compileSdk 34
+    namespace = 'com.drprog.sjournal'
+    compileSdk = 37
 
     defaultConfig {
-        applicationId "com.drprog.sjournal"
-        minSdk 21
-        targetSdk 34
-        versionCode 31
-        versionName "0.10.4"
+        applicationId = "com.drprog.sjournal"
+        minSdk = 21
+        targetSdk = 37
+        versionCode = 32
+        versionName = "0.10.5"
     }
 
     signingConfigs {
         playstore {
-            storeFile file(secretProps.getProperty("KEYSTORE_FILE"))
-            storePassword secretProps.getProperty("KEYSTORE_PASSWORD")
-            keyAlias secretProps.getProperty("KEY_ALIAS")
-            keyPassword secretProps.getProperty("KEY_PASSWORD")
+            storeFile = file(secretProps.getProperty("KEYSTORE_FILE"))
+            storePassword = secretProps.getProperty("KEYSTORE_PASSWORD")
+            keyAlias = secretProps.getProperty("KEY_ALIAS")
+            keyPassword = secretProps.getProperty("KEY_PASSWORD")
         }
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.playstore
-            debuggable false
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig = signingConfigs.playstore
+            debuggable = false
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
         }
     }
 
     buildFeatures {
-        buildConfig true
+        buildConfig = true
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    flavorDimensions "version"
+    flavorDimensions = ["version"]
     productFlavors {
         pro {
-            dimension "version"
-            applicationId 'com.drprog.sjournal.full'
+            dimension = "version"
+            applicationId = 'com.drprog.sjournal.full'
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'false'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal.full\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal.full\""
@@ -59,7 +59,7 @@ android {
             buildConfigField 'String', 'GITHUB_URL', "\"https://github.com/drstranges/SJournal\""
         }
         free {
-            dimension "version"
+            dimension = "version"
             buildConfigField 'boolean', 'IS_VERSION_FREE', 'true'
             buildConfigField 'String', 'URI_MARKET', "\"market://details?id=com.drprog.sjournal\""
             buildConfigField 'String', 'URI_MARKET_URL', "\"https://play.google.com/store/apps/details?id=com.drprog.sjournal\""
