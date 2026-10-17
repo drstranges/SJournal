@@ -169,7 +169,7 @@
                         android:ems="10"
                         android:gravity="center_horizontal"
                         android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress"
+                        android:inputType="text"
                         android:linksClickable="true"
                         android:hint="@string/note_hint"
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
